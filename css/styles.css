@@ -634,9 +634,9 @@ section {
 }
 
 .footer-btn.whatsapp {
-    background: #FFE66D;
-    color: #2D3436;
-    border-color: #FFE66D;
+    background: #25D366;
+    color: #ffffff;
+    border-color: #25D366;
 }
 
 .footer-btn:hover {
@@ -788,8 +788,8 @@ section {
     }
 
     .footer-btn.whatsapp {
-        background: #FFE66D;
-        color: #1A1A1A;
-        border-color: #FFE66D;
+        background: #25D366;
+        color: #ffffff;
+        border-color: #25D366;
     }
 }
