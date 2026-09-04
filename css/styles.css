@@ -624,21 +624,24 @@ section {
     color: var(--color-text);
     transition: var(--transition);
     white-space: nowrap;
+    border: 2px solid transparent;
 }
 
 .footer-btn.email {
-    background: var(--color-secondary);
+    background: #4ECDC4;
     color: #ffffff;
+    border-color: #4ECDC4;
 }
 
 .footer-btn.whatsapp {
-    background: var(--color-accent);
+    background: #FFE66D;
     color: #2D3436;
+    border-color: #FFE66D;
 }
 
 .footer-btn:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     filter: brightness(1.05);
 }
 
@@ -776,5 +779,17 @@ section {
 
     .footer-brand-link {
         color: var(--color-text);
+    }
+
+    .footer-btn.email {
+        background: #6EE7DC;
+        color: #1A1A1A;
+        border-color: #6EE7DC;
+    }
+
+    .footer-btn.whatsapp {
+        background: #FFE66D;
+        color: #1A1A1A;
+        border-color: #FFE66D;
     }
 }
