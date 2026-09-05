@@ -37,6 +37,11 @@ function applyLanguage(lang: string | null): void {
     element.textContent = selected === 'id' ? (translations.id[key] ?? original) : original;
   });
 
+  document.querySelectorAll<HTMLElement>('[data-lumma-en][data-lumma-id]').forEach((element) => {
+    const value = element.getAttribute(selected === 'id' ? 'data-lumma-id' : 'data-lumma-en');
+    if (value !== null) element.textContent = value;
+  });
+
   document.querySelectorAll<HTMLButtonElement>('.language-button').forEach((button) => {
     const active = button.getAttribute('data-lang') === selected;
     button.classList.toggle('active', active);
