@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/products.css';
 import { products, getProduct } from '../../data/products';
 
 export function getStaticPaths() {
@@ -28,18 +29,18 @@ if (!product) {
         </div>
       </div>
       <aside class="product-detail-panel">
-        <span class="eyebrow">Learning formats</span>
+        <span class="eyebrow">Formats</span>
         <div class="format-list">
           {product.format.map((item) => <span>{item}</span>)}
         </div>
-        <p>This public product page describes the learning direction and experience without disclosing internal plans, commercial assumptions, or unreleased strategy.</p>
+        <p>This page presents the public purpose and learning experience of the product. Internal planning and unreleased commercial information are not included.</p>
       </aside>
     </div>
   </section>
 
   <section class="section">
     <div class="container product-highlights-grid">
-      <div><span class="eyebrow">Core direction</span><h2 class="title">What this experience is designed to support.</h2></div>
+      <div><span class="eyebrow">Core direction</span><h2 class="title">What this product is designed to support.</h2></div>
       <div class="highlights-list">
         {product.highlights.map((item, index) => (
           <div><span>0{index + 1}</span><strong>{item}</strong></div>
