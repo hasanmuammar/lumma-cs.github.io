@@ -1,4 +1,6 @@
 ---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
 const base = import.meta.env.BASE_URL;
 ---
 <footer class="footer">
@@ -7,18 +9,19 @@ const base = import.meta.env.BASE_URL;
       <strong>Lumma Creative Studio</strong>
       <p class="lead">A growing creative and educational studio developing meaningful learning experiences for Muslim families.</p>
       <small>© {new Date().getFullYear()} Lumma Creative Studio.</small>
+      <div class="footer-language"><LanguageSwitcher /></div>
     </div>
     <div>
       <strong>Explore</strong>
-      <p><a href={`${base}aya/`}>Aya</a></p>
-      <p><a href={`${base}products/`}>Products</a></p>
-      <p><a href={`${base}about/`}>About Lumma</a></p>
+      <p><a href={`${base}aya/`} data-i18n="Aya">Aya</a></p>
+      <p><a href={`${base}products/`} data-i18n="Products">Products</a></p>
+      <p><a href={`${base}about/`} data-i18n="About Lumma">About Lumma</a></p>
     </div>
     <div>
       <strong>Connect</strong>
-      <p><a href={`${base}team/`}>Our Team</a></p>
-      <p><a href={`${base}collaborate/`}>Collaborate</a></p>
-      <p><a href={`${base}contact/`}>Contact</a></p>
+      <p><a href={`${base}team/`} data-i18n="Our Team">Our Team</a></p>
+      <p><a href={`${base}collaborate/`} data-i18n="Collaborate">Collaborate</a></p>
+      <p><a href={`${base}contact/`} data-i18n="Contact">Contact</a></p>
     </div>
   </div>
 </footer>
