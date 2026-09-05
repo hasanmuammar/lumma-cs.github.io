@@ -1,1 +1,104 @@
-.resources-hero,.resource-detail-hero{padding:6rem 0 4rem;background:linear-gradient(145deg,#f5fbf8,#f7f7f4 55%,#fff8f2);border-bottom:1px solid var(--line)}.resource-category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}.resource-category{padding:1.75rem;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--surface)}.resource-category h2{margin:.6rem 0 1.5rem;font-size:1.5rem;letter-spacing:-.025em}.resource-list{display:grid;gap:1rem}.resource-card{display:flex;min-height:15rem;padding:1.4rem;flex-direction:column;justify-content:space-between;border:1px solid var(--line);border-radius:1rem;background:var(--background)}.resource-card h3{margin:1rem 0 .55rem;font-size:1.25rem}.resource-card p{margin:0;color:var(--muted)}.resource-status{display:inline-flex;padding:.35rem .65rem;border-radius:999px;background:#f5ede2;color:var(--ink);font-size:.74rem;font-weight:800}.resource-status-large{margin-bottom:1rem}.resource-card .text-link{margin-top:1.4rem}.resource-principles{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end}.resource-detail-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:4rem;align-items:end}.resource-detail-panel{padding:1.75rem;border:1px solid var(--line);border-radius:var(--radius-lg);background:rgba(255,255,255,.7);box-shadow:var(--shadow)}.resource-detail-panel div+div{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--line)}.resource-detail-panel span{display:block;margin-bottom:.35rem;color:var(--muted);font-size:.82rem}.resource-detail-panel strong{font-size:1.05rem}@media(max-width:900px){.resource-category-grid,.resource-principles,.resource-detail-grid{grid-template-columns:1fr}}@media(max-width:600px){.resources-hero,.resource-detail-hero{padding:4.5rem 0 3rem}.resource-category{padding:1.25rem}.resource-card{min-height:auto}}
+/* Resource layouts. Shared colours, typography, spacing, and controls are defined in standards.css. */
+.resources-hero,
+.resource-detail-hero {
+  border-bottom: 1px solid var(--line);
+}
+
+.resource-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.resource-category {
+  padding: var(--space-6);
+}
+
+.resource-category h2 {
+  margin: var(--space-2) 0 var(--space-5);
+  font-size: 1.5rem;
+  letter-spacing: -.025em;
+}
+
+.resource-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.resource-card {
+  display: flex;
+  min-height: 15rem;
+  padding: var(--space-5);
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.resource-card h3 {
+  margin: var(--space-4) 0 var(--space-2);
+  font-size: 1.25rem;
+}
+
+.resource-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.resource-status,
+.resource-status-large {
+  display: inline-flex;
+  width: fit-content;
+  padding: .4rem .65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--lumma-yellow) 14%, var(--surface));
+  color: var(--text);
+  font-size: .75rem;
+  font-weight: 800;
+}
+
+.resource-status-large { margin-bottom: var(--space-3); }
+.resource-card .text-link { margin-top: var(--space-5); }
+
+.resource-principles,
+.resource-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: end;
+}
+
+.resource-detail-grid { grid-template-columns: 1.2fr .8fr; }
+
+.resource-detail-panel {
+  padding: var(--space-6);
+}
+
+.resource-detail-panel div + div {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.resource-detail-panel span {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.resource-detail-panel strong { font-size: 1.05rem; }
+
+@media (max-width: 900px) {
+  .resource-category-grid,
+  .resource-principles,
+  .resource-detail-grid { grid-template-columns: 1fr; }
+  .resource-category { padding: var(--space-5); }
+  .resource-detail-grid { gap: var(--space-7); }
+}
+
+@media (max-width: 600px) {
+  .resource-card { min-height: auto; }
+}
