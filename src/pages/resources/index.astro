@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { resources } from '../../data/resources';
+
+const categories = ['Parents', 'Learning'] as const;
+---
+
+<BaseLayout title="Resources | Lumma Creative Studio" description="Guidance and learning resources for families, parents, and educators.">
+  <section class="resources-hero">
+    <div class="container">
+      <span class="eyebrow">Resources</span>
+      <h1 class="display">Learning can continue beyond the screen.</h1>
+      <p class="lead">A growing collection of practical guidance and educational resources for families, parents, and educators.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Explore by purpose</span>
+          <h2 class="title">Resources for learning together.</h2>
+        </div>
+        <p>These materials are separate from products and platforms, providing supporting knowledge and practical guidance.</p>
+      </div>
+
+      <div class="resource-category-grid">
+        {categories.map((category) => {
+          const items = resources.filter((resource) => resource.category === category);
+          return (
+            <section class="resource-category">
+              <span class="eyebrow">{category}</span>
+              <h2>{category === 'Parents' ? 'Guidance for family learning' : 'Ideas for connected learning'}</h2>
+              <div class="resource-list">
+                {items.map((resource) => (
+                  <article class="resource-card">
+                    <div>
+                      <span class="resource-status">{resource.statusLabel}</span>
+                      <h3>{resource.title}</h3>
+                      <p>{resource.shortDescription}</p>
+                    </div>
+                    <a class="text-link" href={`/resources/${resource.slug}/`}>View resource <span aria-hidden="true">→</span></a>
+                  </article>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container resource-principles">
+      <div><span class="eyebrow">A connected approach</span><h2 class="title">Resources support the wider Lumma ecosystem.</h2></div>
+      <p class="lead">A platform may introduce an idea, a product may provide a dedicated experience, and a resource can help families or educators continue the learning in their own context.</p>
+    </div>
+  </section>
+</BaseLayout>
