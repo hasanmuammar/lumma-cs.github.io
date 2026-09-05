@@ -46,3 +46,62 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.collaborate': 'Berkolaborasi dengan Lumma'
   }
 };
+
+const storageKey = 'lumma-language';
+
+function applyLanguage(lang: string | null): void {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return;
+
+  const selected: Language = lang === 'id' ? 'id' : 'en';
+  const root = document.documentElement;
+
+  document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((element) => {
+    const key = element.getAttribute('data-i18n');
+    if (!key) return;
+    const shared = selected === 'id'
+      ? ({
+          Home: 'Beranda', About: 'Tentang', Aya: 'Aya', 'Aya universe': 'Dunia Aya',
+          'Aya The Little Muslim': 'Aya The Little Muslim', 'Aya Fun Lingua': 'Aya Fun Lingua',
+          'Aya Books': 'Aya Books', Products: 'Produk', 'All products': 'Semua produk',
+          Team: 'Tim', Collaborate: 'Kolaborasi', Contact: 'Kontak',
+          'About Lumma': 'Tentang Lumma', 'Our Team': 'Tim Kami', Resources: 'Sumber Belajar',
+          'Creative learning experiences for Muslim families.': 'Pengalaman belajar kreatif untuk keluarga Muslim.'
+        } as Record<string, string>)[key]
+      : key;
+    if (shared) element.textContent = shared;
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-i18n-key]').forEach((element) => {
+    const key = element.getAttribute('data-i18n-key');
+    if (!key) return;
+    const original = element.getAttribute('data-i18n-en') ?? element.textContent ?? '';
+    if (!element.hasAttribute('data-i18n-en')) element.setAttribute('data-i18n-en', original);
+    element.textContent = selected === 'id' ? (translations.id[key] ?? original) : original;
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('.language-button').forEach((button) => {
+    const active = button.getAttribute('data-lang') === selected;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+
+  root.lang = selected;
+  window.localStorage.setItem(storageKey, selected);
+}
+
+function initLanguageSwitcher(): void {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return;
+
+  applyLanguage(window.localStorage.getItem(storageKey));
+  document.querySelectorAll<HTMLButtonElement>('.language-button').forEach((button) => {
+    button.addEventListener('click', () => applyLanguage(button.getAttribute('data-lang')));
+  });
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLanguageSwitcher, { once: true });
+  } else {
+    initLanguageSwitcher();
+  }
+}
