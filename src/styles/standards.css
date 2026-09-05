@@ -79,29 +79,14 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-img, svg, video, canvas {
-  display: block;
-  max-width: 100%;
-}
-
-button, input, textarea, select {
-  font: inherit;
-}
-
+img, svg, video, canvas { display: block; max-width: 100%; }
+button, input, textarea, select { font: inherit; }
 a { color: inherit; }
 
-:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 3px;
-}
-
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 ::selection { background: var(--lumma-pink); color: #202124; }
 
-.container {
-  width: min(var(--content-max), calc(100% - (var(--gutter) * 2)));
-  margin-inline: auto;
-}
-
+.container { width: min(var(--content-max), calc(100% - (var(--gutter) * 2))); margin-inline: auto; }
 .section { padding-block: clamp(4rem, 7vw, 6rem); }
 
 main > section:first-child,
@@ -114,9 +99,7 @@ main > section:first-child.resource-detail-hero,
 main > section:first-child.aya-hero,
 main > section:first-child.team-hero,
 main > section:first-child.collaborate-hero,
-main > section:first-child.about-hero {
-  padding-top: clamp(2rem, 4vw, 3.5rem);
-}
+main > section:first-child.about-hero { padding-top: clamp(2rem, 4vw, 3.5rem); }
 
 .hero, .page-hero, .products-hero, .product-detail-hero,
 .resources-hero, .resource-detail-hero, .aya-hero,
@@ -125,119 +108,24 @@ main > section:first-child.about-hero {
   background: var(--page-bg);
 }
 
-.display {
-  margin: 0 0 var(--space-5);
-  max-width: 12ch;
-  color: var(--text);
-  font-size: clamp(2.75rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 1.04;
-  letter-spacing: -.045em;
-}
-
-.title {
-  margin: 0 0 var(--space-4);
-  color: var(--text);
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -.035em;
-}
-
-.lead {
-  max-width: var(--reading-max);
-  margin: 0 0 var(--space-4);
-  color: var(--text-muted);
-  font-size: 1.0625rem;
-  line-height: 1.7;
-}
-
-.eyebrow {
-  display: inline-block;
-  margin-bottom: var(--space-2);
-  color: var(--lumma-orange);
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
+.display { margin: 0 0 var(--space-5); max-width: 12ch; color: var(--text); font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 700; line-height: 1.04; letter-spacing: -.045em; }
+.title { margin: 0 0 var(--space-4); color: var(--text); font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 700; line-height: 1.1; letter-spacing: -.035em; }
+.lead { max-width: var(--reading-max); margin: 0 0 var(--space-4); color: var(--text-muted); font-size: 1.0625rem; line-height: 1.7; }
+.eyebrow { display: inline-block; margin-bottom: var(--space-2); color: var(--lumma-orange); font-size: .75rem; font-weight: 700; letter-spacing: .08em; line-height: 1.4; text-transform: uppercase; }
 .grid { display: grid; gap: var(--space-5); }
 
-.card,
-.capability-card,
-.catalogue-card,
-.product-detail-panel,
-.resource-category,
-.resource-detail-panel,
-.about-role-card,
-.team-card,
-.about-principle-card,
-.collaborate-intro-card,
-.contact-intro-card,
-.contact-option-card,
-.platform-logo-panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
+.card, .capability-card, .catalogue-card, .product-detail-panel, .resource-category, .resource-detail-panel, .about-role-card, .team-card, .about-principle-card, .collaborate-intro-card, .contact-intro-card, .contact-option-card, .platform-logo-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.card, .capability-card, .catalogue-card, .about-role-card, .team-card, .contact-option-card { transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.card:hover, .capability-card:hover, .catalogue-card:hover, .about-role-card:hover, .team-card:hover, .contact-option-card:hover { border-color: color-mix(in srgb, var(--lumma-orange) 30%, var(--border)); box-shadow: var(--shadow-md); transform: translateY(-2px); }
 
-.card,
-.capability-card,
-.catalogue-card,
-.about-role-card,
-.team-card,
-.contact-option-card {
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-}
-
-.card:hover,
-.capability-card:hover,
-.catalogue-card:hover,
-.about-role-card:hover,
-.team-card:hover,
-.contact-option-card:hover {
-  border-color: color-mix(in srgb, var(--lumma-orange) 30%, var(--border));
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.button {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
-  padding: .7rem 1rem;
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  font-weight: 700;
-  line-height: 1.2;
-  text-decoration: none;
-  transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
-}
-
+.button { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; gap: var(--space-2); padding: .7rem 1rem; border: 1px solid transparent; border-radius: var(--radius-md); font-weight: 700; line-height: 1.2; text-decoration: none; transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease; }
 .button-primary { background: var(--lumma-orange); color: #fff; }
 .button-primary:hover { background: color-mix(in srgb, var(--lumma-orange) 88%, #000); transform: translateY(-1px); }
 .button-secondary { background: var(--surface); border-color: var(--border); color: var(--text); }
 .button-secondary:hover { background: var(--surface-soft); border-color: color-mix(in srgb, var(--lumma-orange) 35%, var(--border)); }
 .button-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
 
-.tag,
-.catalogue-summary span,
-.format-list span {
-  display: inline-block;
-  padding: .4rem .65rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--text-muted);
-  font-size: .8125rem;
-  font-weight: 600;
-}
-
+.tag, .catalogue-summary span, .format-list span { display: inline-block; padding: .4rem .65rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; color: var(--text-muted); font-size: .8125rem; font-weight: 600; }
 .text-link { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .4rem; color: var(--text); font-weight: 700; text-decoration: none; }
 .text-link:hover { color: var(--lumma-orange); }
 
@@ -245,15 +133,8 @@ main > section:first-child.about-hero {
 .nav { min-height: var(--header-height); gap: var(--space-6); }
 .brand-logo { width: clamp(8rem, 11vw, 10rem); height: auto; }
 .nav-links { gap: clamp(1rem, 1.8vw, 1.5rem); font-size: .9375rem; }
-.nav-links > a,
-.nav-group summary,
-.nav-contact-link { min-height: 2.75rem; padding: .6rem 0; color: var(--text-muted); }
-.nav-links > a:hover,
-.nav-links > a[aria-current="page"],
-.nav-group summary:hover,
-.nav-group summary.active,
-.nav-contact-link:hover,
-.nav-contact-link[aria-current="page"] { color: var(--text); }
+.nav-links > a, .nav-group summary, .nav-contact-link { min-height: 2.75rem; padding: .6rem 0; color: var(--text-muted); }
+.nav-links > a:hover, .nav-links > a[aria-current="page"], .nav-group summary:hover, .nav-group summary.active, .nav-contact-link:hover, .nav-contact-link[aria-current="page"] { color: var(--text); }
 .nav-popover { min-width: 18rem; padding: var(--space-2); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
 .nav-popover a { display: block; min-height: 2.75rem; padding: .7rem .75rem; border-radius: var(--radius-sm); color: var(--text-muted); }
 .nav-popover a:hover, .nav-popover a:focus-visible { background: var(--surface-soft); color: var(--text); }
@@ -284,7 +165,6 @@ main > section:first-child.about-hero {
 .status-coming-soon { color: var(--lumma-orange); background: color-mix(in srgb, var(--lumma-orange) 12%, var(--surface)); }
 .status-developing { color: var(--lumma-blue); background: color-mix(in srgb, var(--lumma-blue) 12%, var(--surface)); }
 .resource-status { color: var(--text); background: color-mix(in srgb, var(--lumma-yellow) 14%, var(--surface)); }
-
 .world-card, .world-orbit, .aya-node, .resource-detail-panel { color: var(--text); }
 .world-card, .world-orbit, .aya-node { background: color-mix(in srgb, var(--surface) 94%, transparent); border-color: var(--border); }
 
@@ -302,9 +182,7 @@ main > section:first-child.about-hero {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-  }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Keep theme/layout primitives in one file so page-specific styles cannot disable them. */
