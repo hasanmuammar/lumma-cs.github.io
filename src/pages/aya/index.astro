@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const base = import.meta.env.BASE_URL;
 const pathways = [
   ['Faith & character', 'Stories, authentic Islamic learning, duʿā, adab, and everyday reflection presented in an age-appropriate way.'],
   ['Language & expression', 'English, Arabic, and multilingual learning experiences that grow through familiar words, situations, and stories.'],
@@ -9,9 +10,26 @@ const pathways = [
 ];
 
 const ecosystemItems = [
-  ['Aya The Little Muslim', 'Content channel & learning platform', 'Islamic stories, short lessons, duʿā, and everyday learning experiences rooted in faith and character.', '/aya/aya-the-little-muslim/'],
-  ['Aya Fun Lingua', 'Content channel & learning platform', 'Multilingual learning through familiar situations, stories, vocabulary, and practical communication.', '/aya/aya-fun-lingua/'],
-  ['Aya Books', 'Product line', 'Storybooks, reading experiences, activities, and educational resources designed for repeated family use.', '/products/aya-books/']
+  {
+    title: 'Aya The Little Muslim',
+    type: 'Content channel & learning platform',
+    text: 'Islamic stories, short lessons, duʿā, and everyday learning experiences rooted in faith and character.',
+    href: `${base}aya/aya-the-little-muslim/`,
+    logo: 'ayathelittlemuslim-logo.png'
+  },
+  {
+    title: 'Aya Fun Lingua',
+    type: 'Content channel & learning platform',
+    text: 'Multilingual learning through familiar situations, stories, vocabulary, and practical communication.',
+    href: `${base}aya/aya-fun-lingua/`,
+    logo: 'ayafunlingua-logo.png'
+  },
+  {
+    title: 'Aya Books',
+    type: 'Product line',
+    text: 'Storybooks, reading experiences, activities, and educational resources designed for repeated family use.',
+    href: `${base}products/aya-books/`
+  }
 ];
 ---
 
@@ -24,7 +42,7 @@ const ecosystemItems = [
         <p class="lead" data-i18n-key="aya.lead">Aya is a young Muslim learner growing through faith, language, family life, curiosity, stories, and everyday experiences.</p>
         <div class="button-row">
           <a class="button button-primary" href="#explore" data-i18n-key="aya.exploreWorld">Explore Aya's world</a>
-          <a class="button button-secondary" href="/products/" data-i18n-key="aya.exploreProducts">Explore products</a>
+          <a class="button button-secondary" href={`${base}products/`} data-i18n-key="aya.exploreProducts">Explore products</a>
         </div>
       </div>
       <aside class="aya-character-panel">
@@ -59,7 +77,7 @@ const ecosystemItems = [
 
   <section class="section" id="explore"><div class="container"><span class="eyebrow" data-i18n-key="aya.pathways">What Aya explores</span><h2 class="title" data-i18n-key="aya.pathways.title">Learning that moves across everyday life.</h2><div class="grid grid-2 aya-pathways">{pathways.map(([title, text], index) => (<article class="card pathway-card"><span class="pathway-number">0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>))}</div></div></section>
 
-  <section class="section section-soft"><div class="container"><span class="eyebrow">Aya ecosystem</span><h2 class="title" data-i18n-key="aya.ecosystem.title">Channels, platforms, and products with different roles.</h2><div class="grid grid-3 aya-project-grid">{ecosystemItems.map(([title, type, text, href]) => (<article class="card aya-project-card"><span class="tag">{type}</span><h3>{title}</h3><p>{text}</p><a href={href} class="text-link" data-i18n-key="common.explore">Explore <span aria-hidden="true">→</span></a></article>))}</div></div></section>
+  <section class="section section-soft"><div class="container"><span class="eyebrow">Aya ecosystem</span><h2 class="title" data-i18n-key="aya.ecosystem.title">Channels, platforms, and products with different roles.</h2><div class="grid grid-3 aya-project-grid">{ecosystemItems.map((item) => (<article class="card aya-project-card"><span class="tag">{item.type}</span>{item.logo ? <img class="aya-platform-logo" src={`${base}images/logo/${item.logo}`} alt={`${item.title} logo`} /> : null}<h3>{item.title}</h3><p>{item.text}</p><a href={item.href} class="text-link" data-i18n-key="common.explore">Explore <span aria-hidden="true">→</span></a></article>))}</div></div></section>
 
-  <section class="section"><div class="container aya-family-cta"><div><span class="eyebrow" data-i18n-key="aya.family">Learning with families</span><h2 class="title" data-i18n-key="aya.family.title">A story does not have to end when the page ends.</h2><p class="lead">Aya's world can continue through reading, conversation, activities, language practice, and everyday routines. The aim is to create learning experiences that families can return to and use in different ways.</p></div><div class="button-row"><a class="button button-primary" href="/resources/" data-i18n-key="common.resources">Explore resources</a><a class="button button-secondary" href="/collaborate/" data-i18n-key="common.collaborate">Collaborate with Lumma</a></div></div></section>
+  <section class="section"><div class="container aya-family-cta"><div><span class="eyebrow" data-i18n-key="aya.family">Learning with families</span><h2 class="title" data-i18n-key="aya.family.title">A story does not have to end when the page ends.</h2><p class="lead">Aya's world can continue through reading, conversation, activities, language practice, and everyday routines. The aim is to create learning experiences that families can return to and use in different ways.</p></div><div class="button-row"><a class="button button-primary" href={`${base}resources/`} data-i18n-key="common.resources">Explore resources</a><a class="button button-secondary" href={`${base}collaborate/`} data-i18n-key="common.collaborate">Collaborate with Lumma</a></div></div></section>
 </BaseLayout>
