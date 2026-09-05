@@ -8,10 +8,10 @@ const pathways = [
   ['Family learning', 'Resources and practical ideas that help learning continue through conversations, routines, and shared activities.']
 ];
 
-const projects = [
-  ['Aya The Little Muslim', 'Islamic stories, short lessons, duʿā, and everyday learning experiences rooted in faith and character.'],
-  ['Aya Fun Lingua', 'A multilingual learning space where Aya helps young learners explore English, Arabic, and everyday communication.'],
-  ['Aya Books', 'Storybooks, reading experiences, activities, and educational resources designed for repeated family use.']
+const ecosystemItems = [
+  ['Aya The Little Muslim', 'Content channel & learning platform', 'Islamic stories, short lessons, duʿā, and everyday learning experiences rooted in faith and character.', '/aya/aya-the-little-muslim/'],
+  ['Aya Fun Lingua', 'Content channel & learning platform', 'Multilingual learning through familiar situations, vocabulary, stories, and practical communication.', '/aya/aya-fun-lingua/'],
+  ['Aya Books', 'Product line', 'Storybooks, reading experiences, activities, and educational resources designed for repeated family use.', '/products/aya-books/']
 ];
 ---
 
@@ -64,7 +64,7 @@ const projects = [
         <div class="ecosystem-node node-right">Language learning</div>
         <div class="ecosystem-node node-bottom">Family learning</div>
       </div>
-      <p class="lead ecosystem-note">The public website presents these areas as an interconnected learning ecosystem. Individual products and projects may focus on one area while remaining part of the wider Aya world.</p>
+      <p class="lead ecosystem-note">The public website presents these areas as an interconnected learning ecosystem. Individual products and platforms may focus on one area while remaining part of the wider Aya world.</p>
     </div>
   </section>
 
@@ -86,15 +86,15 @@ const projects = [
 
   <section class="section section-soft">
     <div class="container">
-      <span class="eyebrow">Aya projects</span>
-      <h2 class="title">Explore the growing Aya ecosystem.</h2>
+      <span class="eyebrow">Aya ecosystem</span>
+      <h2 class="title">Channels, platforms, and products with different roles.</h2>
       <div class="grid grid-3 aya-project-grid">
-        {projects.map(([title, text]) => (
+        {ecosystemItems.map(([title, type, text, href]) => (
           <article class="card aya-project-card">
-            <span class="tag">Aya project</span>
+            <span class="tag">{type}</span>
             <h3>{title}</h3>
             <p>{text}</p>
-            <a href="/projects/" class="text-link">Explore the project <span aria-hidden="true">→</span></a>
+            <a href={href} class="text-link">Explore <span aria-hidden="true">→</span></a>
           </article>
         ))}
       </div>
