@@ -21,6 +21,7 @@ const isHome = currentPath === normalized(base);
 
     <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
       <a href={base} aria-current={isHome ? 'page' : undefined} data-i18n="Home">Home</a>
+      <a href={`${base}about/`} aria-current={isActive(`${base}about/`) ? 'page' : undefined} data-i18n="About">About</a>
 
       <details class="nav-group">
         <summary class:list={{ active: isActive(`${base}aya/`) }} data-i18n="Aya">Aya</summary>
@@ -28,25 +29,17 @@ const isHome = currentPath === normalized(base);
           <a href={`${base}aya/`} data-i18n="Aya universe">Aya universe</a>
           <a href={`${base}aya/aya-the-little-muslim/`} data-i18n="Aya The Little Muslim">Aya The Little Muslim</a>
           <a href={`${base}aya/aya-fun-lingua/`} data-i18n="Aya Fun Lingua">Aya Fun Lingua</a>
-          <a href={`${base}products/aya-books/`} data-i18n="Aya Books">Aya Books</a>
         </div>
       </details>
 
       <a href={`${base}products/`} aria-current={isActive(`${base}products/`) ? 'page' : undefined} data-i18n="Products">Products</a>
       <a href={`${base}resources/`} aria-current={isActive(`${base}resources/`) ? 'page' : undefined} data-i18n="Resources">Resources</a>
-
-      <details class="nav-group">
-        <summary class:list={{ active: isActive(`${base}about/`) || isActive(`${base}team/`) || isActive(`${base}collaborate/`) }} data-i18n="Studio">Studio</summary>
-        <div class="nav-popover nav-popover-studio">
-          <a href={`${base}about/`} data-i18n="About Lumma">About Lumma</a>
-          <a href={`${base}team/`} data-i18n="Team">Team</a>
-          <a href={`${base}collaborate/`} data-i18n="Collaborate">Collaborate</a>
-        </div>
-      </details>
+      <a href={`${base}team/`} aria-current={isActive(`${base}team/`) ? 'page' : undefined} data-i18n="Team">Team</a>
+      <a href={`${base}collaborate/`} aria-current={isActive(`${base}collaborate/`) ? 'page' : undefined} data-i18n="Collaborate">Collaborate</a>
+      <a href={`${base}contact/`} aria-current={isActive(`${base}contact/`) ? 'page' : undefined} data-i18n="Contact">Contact</a>
 
       <div class="nav-actions">
         <LanguageSwitcher />
-        <a class="button button-primary nav-contact" href={`${base}contact/`} data-i18n="Contact">Contact</a>
       </div>
     </nav>
   </div>
