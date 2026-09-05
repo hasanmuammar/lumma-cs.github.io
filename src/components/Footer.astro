@@ -6,7 +6,7 @@ const base = import.meta.env.BASE_URL;
 <footer class="footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <strong>Lumma Creative Studio</strong>
+      <img class="footer-logo" src={`${base}images/logo/lumma-logo.png`} alt="Lumma Creative Studio" />
       <p class="lead" data-lumma-en="A growing creative and educational studio developing meaningful learning experiences for Muslim families." data-lumma-id="Studio kreatif dan pendidikan yang terus berkembang untuk mengembangkan pengalaman belajar yang bermanfaat bagi keluarga Muslim.">A growing creative and educational studio developing meaningful learning experiences for Muslim families.</p>
       <small>© {new Date().getFullYear()} Lumma Creative Studio.</small>
       <div class="footer-language"><LanguageSwitcher /></div>
@@ -15,6 +15,7 @@ const base = import.meta.env.BASE_URL;
       <strong data-lumma-en="Explore" data-lumma-id="Jelajahi">Explore</strong>
       <p><a href={`${base}aya/`} data-i18n="Aya">Aya</a></p>
       <p><a href={`${base}products/`} data-i18n="Products">Products</a></p>
+      <p><a href={`${base}resources/`} data-i18n="Resources">Resources</a></p>
       <p><a href={`${base}about/`} data-i18n="About Lumma">About Lumma</a></p>
     </div>
     <div>
