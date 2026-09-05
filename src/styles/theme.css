@@ -6,6 +6,19 @@
   --lumma-orange: #ee743d;
   --lumma-blue: #2b7fa8;
   --lumma-black: #15171a;
+
+  /* Consistent spacing and sizing scale. */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --content-width: 74rem;
+  --reading-width: 46rem;
 }
 
 html[data-theme='light'] {
@@ -39,21 +52,34 @@ html[data-theme='dark'] {
 }
 
 html, body { min-height: 100%; background: var(--background); color: var(--ink); }
-body { transition: background-color .18s ease, color .18s ease; }
+body { font-size: 1rem; line-height: 1.6; transition: background-color .18s ease, color .18s ease; }
 ::selection { background: var(--lumma-orange); color: #fff; }
 
-/* Shared layout */
+/* Shared typography and layout rhythm. */
+h1, h2, h3, h4, p { margin-top: 0; }
+h1, h2, h3, h4 { color: var(--ink); line-height: 1.15; }
+p { margin-bottom: var(--space-4); }
+.container { width: min(var(--content-width), calc(100% - 2rem)); }
+.section { padding-block: clamp(4rem, 8vw, 6rem); }
+.page-hero, .products-hero, .product-detail-hero, .resources-hero, .resource-detail-hero, .aya-hero, .team-hero, .collaborate-hero, .about-hero { padding-block: clamp(4rem, 8vw, 6rem); }
+.lead { max-width: var(--reading-width); font-size: clamp(1rem, 1vw + .75rem, 1.125rem); line-height: 1.7; }
+.display { line-height: 1.02; }
+.title { line-height: 1.12; }
+.button, .menu-button, .language-button, .nav-links > a, .nav-group summary, .nav-contact-link { min-height: 2.75rem; }
+.button { padding: .75rem 1.125rem; border-radius: .7rem; }
+
+/* Header and navigation. */
 .site-header { background: color-mix(in srgb, var(--background) 90%, transparent); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); }
-.nav { min-height: 5rem; gap: 1.5rem; }
+.nav { min-height: 5rem; gap: var(--space-6); }
 .brand { display: inline-flex; flex: 0 0 auto; align-items: center; }
 .brand-logo { display: block; width: 10.25rem; height: auto; max-height: 3.1rem; object-fit: contain; }
 .nav-links { display: flex; flex: 1; align-items: center; justify-content: flex-end; gap: 1.2rem; font-size: .9rem; font-weight: 650; }
-.nav-links > a, .nav-group summary, .nav-contact-link { position: relative; padding: .55rem 0; color: var(--muted); transition: color .18s ease; }
+.nav-links > a, .nav-group summary, .nav-contact-link { position: relative; display: inline-flex; align-items: center; padding: .55rem 0; color: var(--muted); transition: color .18s ease; }
 .nav-links > a::after, .nav-group summary::before, .nav-contact-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: .22rem; height: 2px; background: var(--lumma-orange); transform: scaleX(0); transform-origin: left; transition: transform .18s ease; }
 .nav-links > a:hover, .nav-links > a[aria-current='page'], .nav-group summary:hover, .nav-group summary.active, .nav-contact-link:hover, .nav-contact-link[aria-current='page'] { color: var(--ink); }
 .nav-links > a:hover::after, .nav-links > a[aria-current='page']::after, .nav-group summary:hover::before, .nav-group summary.active::before, .nav-contact-link:hover::after, .nav-contact-link[aria-current='page']::after { transform: scaleX(1); }
 .nav-group summary::after { color: currentColor; }
-.nav-actions { display: inline-flex; align-items: center; gap: .8rem; padding-left: .2rem; }
+.nav-actions { display: inline-flex; align-items: center; gap: var(--space-3); padding-left: .2rem; }
 .nav-popover { background: var(--surface); border-color: var(--line); box-shadow: var(--shadow); }
 .nav-popover a { color: var(--muted); }
 .nav-popover a:hover { background: var(--surface-soft); color: var(--ink); }
@@ -61,14 +87,13 @@ body { transition: background-color .18s ease, color .18s ease; }
 .menu-icon { border-color: currentColor; }
 .menu-icon::after { border-color: currentColor; }
 
-/* Shared page rhythm and surfaces */
+/* Shared page rhythm and surfaces. */
 .page-hero, .products-hero, .product-detail-hero, .resources-hero, .resource-detail-hero, .aya-hero, .team-hero, .collaborate-hero, .about-hero { position: relative; isolation: isolate; background: radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--lumma-yellow) 15%, transparent), transparent 24rem), radial-gradient(circle at 90% 8%, color-mix(in srgb, var(--lumma-blue) 11%, transparent), transparent 26rem), radial-gradient(circle at 58% 100%, color-mix(in srgb, var(--lumma-pink) 12%, transparent), transparent 28rem), var(--background); }
 .page-hero::before, .products-hero::before, .product-detail-hero::before, .resources-hero::before, .resource-detail-hero::before, .aya-hero::before, .team-hero::before, .collaborate-hero::before, .about-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, color-mix(in srgb, var(--surface) 55%, transparent), transparent 65%); }
 .section-soft, .projects-section { background: var(--surface-soft); }
 .card, .capability-card, .catalogue-card, .product-detail-panel, .resource-category, .resource-detail-panel, .about-role-card, .team-card, .about-principle-card, .collaborate-intro-card, .contact-intro-card, .contact-option-card { background: var(--surface); border-color: var(--line); box-shadow: var(--shadow); }
 .card, .capability-card, .catalogue-card, .resource-category, .team-card, .about-role-card, .contact-option-card { transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
 .card:hover, .capability-card:hover, .catalogue-card:hover, .resource-category:hover, .team-card:hover, .about-role-card:hover, .contact-option-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--brand) 32%, var(--line)); }
-.button { border-radius: .8rem; }
 .button-primary { background: var(--lumma-orange); color: #fff; }
 .button-primary:hover { background: var(--brand-dark); }
 .button-secondary { background: var(--surface); color: var(--ink); border-color: var(--line); }
@@ -76,7 +101,7 @@ body { transition: background-color .18s ease, color .18s ease; }
 .text-link:hover { color: var(--brand); }
 .tag, .catalogue-summary span, .format-list span { background: var(--surface); border-color: var(--line); color: var(--ink); }
 
-/* Home and Aya */
+/* Home and Aya. */
 .hero, .aya-hero { background-color: var(--background); }
 .hero-world, .aya-character-panel { border-color: var(--line); background: linear-gradient(145deg, color-mix(in srgb, var(--lumma-yellow) 20%, var(--surface)), color-mix(in srgb, var(--lumma-pink) 14%, var(--surface)) 52%, color-mix(in srgb, var(--lumma-blue) 14%, var(--surface))); }
 .world-card, .world-orbit, .aya-node { background: color-mix(in srgb, var(--surface) 92%, transparent); border-color: var(--line); color: var(--ink); }
@@ -87,7 +112,14 @@ body { transition: background-color .18s ease, color .18s ease; }
 .project-card p { color: var(--muted); }
 .intro-band, .collaboration-card, .collaboration-cta { background: linear-gradient(135deg, #202124, #302a29 58%, #25323a); }
 
-/* Product and resource consistency */
+/* Aya platform identity. */
+.platform-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .75fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.platform-logo-panel { min-height: 18rem; display: grid; place-items: center; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--line); border-radius: 1.5rem; background: color-mix(in srgb, var(--surface) 88%, var(--lumma-pink) 6%); box-shadow: var(--shadow); }
+.platform-logo { width: min(100%, 22rem); max-height: 12rem; object-fit: contain; }
+.aya-platform-logo { display: block; width: min(100%, 14rem); height: 4.5rem; object-fit: contain; object-position: left center; margin: var(--space-5) 0 var(--space-3); }
+.aya-project-card .tag + .aya-platform-logo { margin-top: var(--space-5); }
+
+/* Product and resource consistency. */
 .product-detail-panel, .resource-detail-panel { background: var(--surface); }
 .resource-card { background: var(--surface-tint); border-color: var(--line); }
 .resource-status { background: color-mix(in srgb, var(--lumma-yellow) 18%, var(--surface)); color: var(--ink); }
@@ -95,7 +127,7 @@ body { transition: background-color .18s ease, color .18s ease; }
 .status-coming-soon { color: var(--lumma-orange); background: color-mix(in srgb, var(--lumma-orange) 13%, var(--surface)); }
 .status-developing { color: var(--lumma-blue); background: color-mix(in srgb, var(--lumma-blue) 13%, var(--surface)); }
 
-/* Studio pages */
+/* Studio pages. */
 .about-role-accent { background: linear-gradient(145deg, color-mix(in srgb, var(--lumma-pink) 18%, var(--surface)), color-mix(in srgb, var(--lumma-green) 12%, var(--surface))); }
 .collaborate-grid { background: var(--line); }
 .collaboration-area { background: var(--surface); }
@@ -110,12 +142,12 @@ body { transition: background-color .18s ease, color .18s ease; }
 .contact-option-card p { margin: 0; color: var(--muted); }
 .contact-option-card .text-link { margin-top: 1.25rem; }
 
-/* Footer */
+/* Footer. */
 .footer { background: var(--surface); border-color: var(--line); }
 .footer-logo { display: block; width: 10.5rem; height: auto; margin-bottom: 1rem; }
 .footer a:hover { color: var(--brand); }
 
-/* Dark mode repairs for older component styles */
+/* Dark mode repairs for older component styles. */
 html[data-theme='dark'] .hero-world, html[data-theme='dark'] .aya-character-panel { background: linear-gradient(145deg, #2a2421, #2a2025 52%, #1f2b32); }
 html[data-theme='dark'] .world-card { background: rgba(25, 28, 32, .92); }
 html[data-theme='dark'] .world-cloud { background: rgba(255,255,255,.1); }
@@ -123,6 +155,7 @@ html[data-theme='dark'] .intro-band, html[data-theme='dark'] .collaboration-card
 html[data-theme='dark'] .about-role-accent { background: linear-gradient(145deg, #30242b, #1f2d2a); }
 html[data-theme='dark'] .product-placeholder { background: linear-gradient(135deg, #49332a, #27323a 52%, #25352d); }
 html[data-theme='dark'] .tag { background: rgba(25, 28, 32, .8); }
+html[data-theme='dark'] .platform-logo-panel { background: #1b2025; }
 
 @media (max-width: 1120px) { .nav-links { gap: .8rem; font-size: .84rem; } .brand-logo { width: 9.4rem; } }
 @media (max-width: 900px) {
@@ -134,7 +167,7 @@ html[data-theme='dark'] .tag { background: rgba(25, 28, 32, .8); }
   .nav-actions { display: flex; justify-content: space-between; padding: .9rem 0 0; border-top: 1px solid var(--line); }
   .nav-group { width: 100%; }
   .nav-popover { position: static; transform: none; width: 100%; margin: .25rem 0 .5rem; background: var(--surface-soft); box-shadow: none; }
-  .contact-hero-grid, .contact-options-grid { grid-template-columns: 1fr; }
+  .platform-hero-grid, .contact-hero-grid, .contact-options-grid { grid-template-columns: 1fr; }
   .contact-hero-grid { gap: 2.5rem; }
 }
-@media (max-width: 600px) { .brand-logo { width: 8.7rem; } .menu-label { display: none; } .section { padding: 4.5rem 0; } }
+@media (max-width: 600px) { .brand-logo { width: 8.7rem; } .menu-label { display: none; } .section { padding-block: 4rem; } }
