@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/products.css';
 import { products } from '../../data/products';
 
 const statusClass = {
@@ -9,14 +10,14 @@ const statusClass = {
 };
 ---
 
-<BaseLayout title="Products | Lumma Creative Studio" description="Explore Lumma products, projects and educational learning experiences.">
+<BaseLayout title="Products | Lumma Creative Studio" description="Explore Lumma products and educational learning experiences.">
   <section class="products-hero">
     <div class="container">
-      <span class="eyebrow">Products & experiences</span>
+      <span class="eyebrow">Products</span>
       <h1 class="display">Explore the Lumma catalogue.</h1>
-      <p class="lead">Our products bring together stories, language, faith, books, activities, and family learning. The catalogue can grow without changing the structure of the website.</p>
+      <p class="lead">Our product catalogue brings together books, educational resources, and future learning experiences. Content channels and learning platforms are presented separately from products.</p>
       <div class="catalogue-summary" aria-label="Catalogue categories">
-        <span>Stories</span><span>Language</span><span>Books</span><span>Family learning</span>
+        <span>Books</span><span>Educational resources</span><span>Learning experiences</span>
       </div>
     </div>
   </section>
@@ -24,8 +25,8 @@ const statusClass = {
   <section class="section products-section">
     <div class="container">
       <div class="section-heading">
-        <div><span class="eyebrow">Current directions</span><h2 class="title">Products growing from the Aya universe.</h2></div>
-        <p>Each product has its own focus while remaining connected to the wider learning ecosystem.</p>
+        <div><span class="eyebrow">Current products</span><h2 class="title">Products designed for meaningful learning.</h2></div>
+        <p>Each product has its own purpose and can connect with the wider Lumma learning ecosystem without being confused with a channel or platform.</p>
       </div>
       <div class="product-catalogue-grid">
         {products.map((product) => (
@@ -52,7 +53,7 @@ const statusClass = {
   <section class="section section-soft">
     <div class="container catalogue-note">
       <div><span class="eyebrow">A growing catalogue</span><h2 class="title">Built to accommodate what comes next.</h2></div>
-      <p class="lead">New books, learning tools, digital experiences, and resources can be added through the same product structure as they become ready for public presentation.</p>
+      <p class="lead">New books, educational resources, and other public-facing products can be added through the same structure as they become ready for presentation.</p>
     </div>
   </section>
 </BaseLayout>
