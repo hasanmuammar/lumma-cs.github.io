@@ -2,11 +2,17 @@
 
 A modern, bilingual (English/Indonesian) website for Lumma Creative Studio — building creative solutions for language learners and Muslim families.
 
-## Projects
+## The Aya Ecosystem
 
-- **Aya The Little Muslim** — Islamic education content for children
-- **Aya Fun Lingua** — Interactive language learning platform
-- **Aya Books** — Faith-based books for Muslim children
+Aya is the central creative and educational universe of Lumma Creative Studio: a five-year-old Muslim girl and the wider family, stories, learning experiences, books, and digital products built around her world.
+
+The current Aya projects are:
+
+- **Aya The Little Muslim** — Islamic learning, stories, duʿā, and everyday character-building content
+- **Aya Fun Lingua** — Trilingual language-learning content and experiences built around Aya
+- **Aya Books** — Storybooks and learning resources extending Aya into reading and family learning
+
+Future work also includes practical learning programmes, tutorials, activity-based resources, parent guidance, web technologies, apps, and other digital creative solutions for Muslim families.
 
 ## Tech Stack
 
@@ -20,9 +26,10 @@ A modern, bilingual (English/Indonesian) website for Lumma Creative Studio — b
 - Fully responsive design (mobile, tablet, desktop)
 - Automatic dark/light mode based on system preference
 - English/Indonesian language toggle
+- Dedicated Aya introduction and ecosystem section
 - Project cards with social media links
 - Contact section with email and WhatsApp
-- Clean, modern, kid-friendly color palette
+- Consistent, clean, family-friendly visual system
 
 ## Local Development
 
@@ -41,7 +48,7 @@ Then open `http://localhost:8080` in your browser.
 4. Choose `main` branch and `/ (root)` folder
 5. Click **Save**
 
-Your site will be live at: `https://<username>.github.io/lumma-cs/`
+Your site will be published through GitHub Pages.
 
 ## License
 

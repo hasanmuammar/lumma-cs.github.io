@@ -43,7 +43,6 @@ body {
     padding: 0 24px;
 }
 
-/* Logo */
 .logo-img {
     height: 40px;
     width: auto;
@@ -65,13 +64,17 @@ body {
     object-fit: contain;
 }
 
+.project-logo-placeholder {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius);
+}
+
 .footer-logo {
     height: 32px;
     width: auto;
     display: block;
 }
 
-/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -108,12 +111,6 @@ body {
     opacity: 0.8;
 }
 
-.logo-img {
-    height: 40px;
-    width: auto;
-    display: block;
-}
-
 .logo-text {
     white-space: nowrap;
 }
@@ -121,7 +118,7 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
     list-style: none;
 }
 
@@ -196,7 +193,6 @@ body {
     transition: var(--transition);
 }
 
-/* Hero */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -212,17 +208,6 @@ body {
     margin: 0 auto;
 }
 
-.hero-badge {
-    display: inline-block;
-    padding: 8px 16px;
-    background: var(--color-primary-light);
-    color: var(--color-primary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    border-radius: 100px;
-    margin-bottom: 24px;
-}
-
 .hero-title {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
@@ -236,7 +221,7 @@ body {
     color: var(--color-text-light);
     line-height: 1.7;
     margin-bottom: 32px;
-    max-width: 600px;
+    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -313,7 +298,6 @@ body {
     border-color: var(--color-primary);
 }
 
-/* Sections */
 section {
     padding: 100px 0;
 }
@@ -342,7 +326,6 @@ section {
     color: var(--color-text);
 }
 
-/* About */
 .about {
     background: var(--color-bg-alt);
 }
@@ -364,7 +347,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -395,7 +378,82 @@ section {
     font-weight: 500;
 }
 
-/* Projects */
+.aya-intro {
+    background: var(--color-bg);
+}
+
+.aya-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.8fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.aya-intro-copy .section-title {
+    margin-bottom: 18px;
+}
+
+.aya-lead {
+    font-size: 1.35rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 760px;
+}
+
+.aya-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.aya-value {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 14px;
+    border-radius: 100px;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+}
+
+.aya-intro-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: calc(var(--radius) + 4px);
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.aya-card-mark {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.aya-intro-card h3 {
+    font-size: 1.35rem;
+    line-height: 1.35;
+    margin-bottom: 12px;
+}
+
+.aya-intro-card p {
+    color: var(--color-text-light);
+    line-height: 1.75;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -424,6 +482,17 @@ section {
     margin-bottom: 12px;
     color: var(--color-text);
     text-align: center;
+}
+
+.project-type {
+    display: block;
+    margin: 0 auto 12px;
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
 }
 
 .project-description {
@@ -483,7 +552,6 @@ section {
     margin-top: 12px;
 }
 
-/* Courses */
 .courses {
     background: var(--color-bg-alt);
 }
@@ -520,7 +588,6 @@ section {
     margin-bottom: 24px;
 }
 
-/* Contact */
 .contact-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -570,7 +637,6 @@ section {
     text-decoration: underline;
 }
 
-/* Footer */
 .footer {
     background: #2D3436;
     color: var(--color-white);
@@ -598,12 +664,6 @@ section {
 
 .footer-brand-link:hover {
     opacity: 0.8;
-}
-
-.footer-logo {
-    height: 32px;
-    width: auto;
-    display: block;
 }
 
 .footer-contact {
@@ -652,7 +712,21 @@ section {
     white-space: nowrap;
 }
 
-/* Responsive */
+@media (max-width: 920px) {
+    .nav-links {
+        gap: 18px;
+    }
+
+    .aya-intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .aya-intro-card {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
@@ -691,6 +765,10 @@ section {
     .pill {
         padding: 8px 16px;
         font-size: 0.85rem;
+    }
+
+    .aya-lead {
+        font-size: 1.2rem;
     }
 
     .footer-content {
@@ -746,9 +824,16 @@ section {
     .project-card,
     .courses-card,
     .contact-card,
-    .stat-card {
+    .stat-card,
+    .aya-intro-card {
         background: var(--color-white);
         border: 1px solid var(--color-border);
+    }
+
+    .aya-value,
+    .project-logo-placeholder {
+        background: var(--color-bg-alt);
+        border-color: var(--color-border);
     }
 
     .channel-link {
