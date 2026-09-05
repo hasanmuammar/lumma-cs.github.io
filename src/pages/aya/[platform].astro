@@ -7,6 +7,7 @@ export function getStaticPaths() {
   return platforms.map((platform) => ({ params: { platform: platform.slug } }));
 }
 
+const base = import.meta.env.BASE_URL;
 const { platform: slug } = Astro.params;
 const platform = getPlatform(slug ?? '');
 
@@ -16,12 +17,17 @@ if (!platform) {
 ---
 
 <BaseLayout title={`${platform.title} | Lumma Creative Studio`} description={platform.shortDescription}>
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">Aya platform</span>
-      <h1 class="display">{platform.title}</h1>
-      <p class="lead">{platform.description}</p>
-      <span class="tag">{platform.category}</span>
+  <section class="page-hero platform-hero">
+    <div class="container platform-hero-grid">
+      <div>
+        <span class="eyebrow">Aya platform</span>
+        <h1 class="display">{platform.title}</h1>
+        <p class="lead">{platform.description}</p>
+        <span class="tag">{platform.category}</span>
+      </div>
+      <div class="platform-logo-panel">
+        <img class="platform-logo" src={`${base}images/logo/${platform.logo}`} alt={`${platform.title} logo`} />
+      </div>
     </div>
   </section>
 
@@ -43,8 +49,8 @@ if (!platform) {
     <div class="container product-navigation">
       <div><span class="eyebrow">Explore Aya</span><h2 class="title">One platform, part of a wider learning world.</h2></div>
       <div class="button-row">
-        <a class="button button-primary" href="/aya/">Aya universe</a>
-        <a class="button button-secondary" href="/products/">Explore products</a>
+        <a class="button button-primary" href={`${base}aya/`}>Aya universe</a>
+        <a class="button button-secondary" href={`${base}products/`}>Explore products</a>
       </div>
     </div>
   </section>
