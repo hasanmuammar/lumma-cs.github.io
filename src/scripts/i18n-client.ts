@@ -20,26 +20,60 @@ const sharedTranslations: Record<Language, Record<string, string>> = {
   }
 };
 
+/**
+ * Updates an element's visible label without removing nested icons, SVGs,
+ * arrows, or other child elements.
+ */
+function setTranslatedText(element: HTMLElement, value: string): void {
+  const meaningfulTextNode = Array.from(element.childNodes).find(
+    (node): node is Text => node.nodeType === Node.TEXT_NODE && Boolean(node.textContent?.trim())
+  );
+
+  if (meaningfulTextNode) {
+    meaningfulTextNode.textContent = value;
+    return;
+  }
+
+  if (element.childElementCount > 0) {
+    element.insertBefore(document.createTextNode(value), element.firstChild);
+    return;
+  }
+
+  element.textContent = value;
+}
+
+/** Returns the label text while ignoring nested icons and other child elements. */
+function getTranslatableText(element: HTMLElement): string {
+  const meaningfulTextNode = Array.from(element.childNodes).find(
+    (node): node is Text => node.nodeType === Node.TEXT_NODE && Boolean(node.textContent?.trim())
+  );
+
+  return meaningfulTextNode?.textContent?.trim() ?? element.textContent?.trim() ?? '';
+}
+
 function applyLanguage(lang: string | null): void {
   const selected: Language = lang === 'id' ? 'id' : 'en';
 
   document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((element) => {
     const key = element.getAttribute('data-i18n');
     const translation = key ? sharedTranslations[selected][key] : undefined;
-    if (translation) element.textContent = translation;
+    if (translation) setTranslatedText(element, translation);
   });
 
   document.querySelectorAll<HTMLElement>('[data-i18n-key]').forEach((element) => {
     const key = element.getAttribute('data-i18n-key');
     if (!key) return;
-    const original = element.getAttribute('data-i18n-en') ?? element.textContent ?? '';
+
+    const original = element.getAttribute('data-i18n-en') ?? getTranslatableText(element);
     if (!element.hasAttribute('data-i18n-en')) element.setAttribute('data-i18n-en', original);
-    element.textContent = selected === 'id' ? (translations.id[key] ?? original) : original;
+
+    const translation = selected === 'id' ? (translations.id[key] ?? original) : original;
+    setTranslatedText(element, translation);
   });
 
   document.querySelectorAll<HTMLElement>('[data-lumma-en][data-lumma-id]').forEach((element) => {
     const value = element.getAttribute(selected === 'id' ? 'data-lumma-id' : 'data-lumma-en');
-    if (value !== null) element.textContent = value;
+    if (value !== null) setTranslatedText(element, value);
   });
 
   document.querySelectorAll<HTMLButtonElement>('.language-button').forEach((button) => {
