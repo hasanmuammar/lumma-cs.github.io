@@ -3,17 +3,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="About Lumma Creative Studio" description="Learn about Lumma Creative Studio, its educational direction, and the relationship between Lumma and Aya.">
+  <script>
+    import '../scripts/lumma-i18n';
+  </script>
+
   <section class="page-hero about-hero">
     <div class="container about-hero-grid">
       <div>
-        <span class="eyebrow">About Lumma</span>
-        <h1 class="display">Building thoughtful learning experiences for Muslim families.</h1>
-        <p class="lead">Lumma Creative Studio brings together education, storytelling, language, publishing, technology, and creative development to create useful learning experiences.</p>
+        <span class="eyebrow" data-lumma-en="About Lumma" data-lumma-id="Tentang Lumma">About Lumma</span>
+        <h1 class="display" data-lumma-en="Building thoughtful learning experiences for Muslim families." data-lumma-id="Membangun pengalaman belajar yang bermanfaat bagi keluarga Muslim.">Building thoughtful learning experiences for Muslim families.</h1>
+        <p class="lead" data-lumma-en="Lumma Creative Studio brings together education, storytelling, language, publishing, technology, and creative development to create useful learning experiences." data-lumma-id="Lumma Creative Studio memadukan pendidikan, cerita, bahasa, penerbitan, teknologi, dan pengembangan kreatif untuk menghadirkan pengalaman belajar yang bermanfaat.">Lumma Creative Studio brings together education, storytelling, language, publishing, technology, and creative development to create useful learning experiences.</p>
       </div>
       <div class="about-principle-card">
-        <span class="tag">Our direction</span>
-        <strong>Learning should feel connected to real family life.</strong>
-        <p>We develop experiences that are practical, age-appropriate, meaningful, and designed to be revisited.</p>
+        <span class="tag" data-lumma-en="Our direction" data-lumma-id="Arah kami">Our direction</span>
+        <strong data-lumma-en="Learning should feel connected to real family life." data-lumma-id="Pembelajaran sebaiknya dekat dengan kehidupan keluarga sehari-hari.">Learning should feel connected to real family life.</strong>
+        <p data-lumma-en="We develop experiences that are practical, age-appropriate, meaningful, and designed to be revisited." data-lumma-id="Kami mengembangkan pengalaman belajar yang praktis, sesuai usia, bermakna, dan dapat digunakan kembali.">We develop experiences that are practical, age-appropriate, meaningful, and designed to be revisited.</p>
       </div>
     </div>
   </section>
@@ -21,30 +25,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="section">
     <div class="container about-grid">
       <div>
-        <span class="eyebrow">What Lumma does</span>
-        <h2 class="title">A studio working across education and creative technology.</h2>
+        <span class="eyebrow" data-lumma-en="What Lumma does" data-lumma-id="Apa yang Lumma lakukan">What Lumma does</span>
+        <h2 class="title" data-lumma-en="A studio working across education and creative technology." data-lumma-id="Sebuah studio yang bekerja di bidang pendidikan dan teknologi kreatif.">A studio working across education and creative technology.</h2>
       </div>
       <div>
-        <p class="lead">Our work can take different forms: content channels, learning platforms, books, educational resources, and digital experiences. The format changes according to the learning need, while the underlying direction stays consistent.</p>
-        <p>We care about clarity, usefulness, cultural and religious sensitivity, strong storytelling, and interfaces that are easy for families to use.</p>
+        <p class="lead" data-lumma-en="Our work can take different forms: content channels, learning platforms, books, educational resources, and digital experiences. The format changes according to the learning need, while the underlying direction stays consistent." data-lumma-id="Pekerjaan kami dapat hadir dalam berbagai bentuk: kanal konten, platform belajar, buku, sumber pendidikan, dan pengalaman digital. Bentuknya menyesuaikan kebutuhan belajar, sementara arah utamanya tetap sama.">Our work can take different forms: content channels, learning platforms, books, educational resources, and digital experiences. The format changes according to the learning need, while the underlying direction stays consistent.</p>
+        <p data-lumma-en="We care about clarity, usefulness, cultural and religious sensitivity, strong storytelling, and interfaces that are easy for families to use." data-lumma-id="Kami memperhatikan kejelasan, manfaat, kepekaan budaya dan agama, penceritaan yang kuat, serta antarmuka yang mudah digunakan keluarga.">We care about clarity, usefulness, cultural and religious sensitivity, strong storytelling, and interfaces that are easy for families to use.</p>
       </div>
     </div>
   </section>
 
   <section class="section section-soft">
     <div class="container">
-      <span class="eyebrow">Lumma & Aya</span>
-      <h2 class="title">Lumma builds. Aya connects.</h2>
+      <span class="eyebrow" data-lumma-en="Lumma & Aya" data-lumma-id="Lumma & Aya">Lumma & Aya</span>
+      <h2 class="title" data-lumma-en="Lumma builds. Aya connects." data-lumma-id="Lumma membangun. Aya menghubungkan.">Lumma builds. Aya connects.</h2>
       <div class="about-relationship-grid">
         <article class="about-role-card">
           <span class="role-index">01</span>
           <h3>Lumma Creative Studio</h3>
-          <p>The organisation and creative studio responsible for developing educational content, products, platforms, and digital experiences.</p>
+          <p data-lumma-en="The organisation and creative studio responsible for developing educational content, products, platforms, and digital experiences." data-lumma-id="Organisasi dan studio kreatif yang mengembangkan konten pendidikan, produk, platform, dan pengalaman digital.">The organisation and creative studio responsible for developing educational content, products, platforms, and digital experiences.</p>
         </article>
         <article class="about-role-card about-role-accent">
           <span class="role-index">02</span>
           <h3>Aya</h3>
-          <p>The central character and educational universe through which related stories, learning experiences, platforms, and products can connect.</p>
+          <p data-lumma-en="The central character and educational universe through which related stories, learning experiences, platforms, and products can connect." data-lumma-id="Karakter utama dan dunia pendidikan yang menghubungkan berbagai cerita, pengalaman belajar, platform, dan produk.">The central character and educational universe through which related stories, learning experiences, platforms, and products can connect.</p>
         </article>
       </div>
     </div>
@@ -52,12 +56,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section class="section">
     <div class="container about-values-grid">
-      <div><span class="eyebrow">How we think</span><h2 class="title">Useful first. Thoughtful throughout.</h2></div>
+      <div><span class="eyebrow" data-lumma-en="How we think" data-lumma-id="Cara kami berpikir">How we think</span><h2 class="title" data-lumma-en="Useful first. Thoughtful throughout." data-lumma-id="Utamakan manfaat. Tetap berpikir secara mendalam.">Useful first. Thoughtful throughout.</h2></div>
       <div class="about-values-list">
-        <div><strong>Purposeful learning</strong><p>Each experience should have a clear educational reason to exist.</p></div>
-        <div><strong>Family context</strong><p>Learning is stronger when it can connect with conversations, routines, and shared use.</p></div>
-        <div><strong>Age-appropriate design</strong><p>Language, presentation, pacing, and interaction should respect the learner's stage.</p></div>
-        <div><strong>Responsible technology</strong><p>Digital tools should serve the learning experience rather than become the experience itself.</p></div>
+        <div><strong data-lumma-en="Purposeful learning" data-lumma-id="Pembelajaran yang memiliki tujuan">Purposeful learning</strong><p data-lumma-en="Each experience should have a clear educational reason to exist." data-lumma-id="Setiap pengalaman belajar harus memiliki alasan pendidikan yang jelas.">Each experience should have a clear educational reason to exist.</p></div>
+        <div><strong data-lumma-en="Family context" data-lumma-id="Konteks keluarga">Family context</strong><p data-lumma-en="Learning is stronger when it can connect with conversations, routines, and shared use." data-lumma-id="Pembelajaran menjadi lebih kuat ketika terhubung dengan percakapan, rutinitas, dan kegiatan bersama.">Learning is stronger when it can connect with conversations, routines, and shared use.</p></div>
+        <div><strong data-lumma-en="Age-appropriate design" data-lumma-id="Desain sesuai usia">Age-appropriate design</strong><p data-lumma-en="Language, presentation, pacing, and interaction should respect the learner's stage." data-lumma-id="Bahasa, penyajian, tempo, dan interaksi harus sesuai dengan tahap perkembangan pembelajar.">Language, presentation, pacing, and interaction should respect the learner's stage.</p></div>
+        <div><strong data-lumma-en="Responsible technology" data-lumma-id="Teknologi yang bertanggung jawab">Responsible technology</strong><p data-lumma-en="Digital tools should serve the learning experience rather than become the experience itself." data-lumma-id="Teknologi digital harus mendukung pengalaman belajar, bukan menjadi tujuan itu sendiri.">Digital tools should serve the learning experience rather than become the experience itself.</p></div>
       </div>
     </div>
   </section>
