@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { platforms, getPlatform } from '../../data/platforms';
+
+export function getStaticPaths() {
+  return platforms.map((platform) => ({ params: { platform: platform.slug } }));
+}
+
+const { platform: slug } = Astro.params;
+const platform = getPlatform(slug ?? '');
+
+if (!platform) {
+  return new Response(null, { status: 404, statusText: 'Not found' });
+}
+---
+
+<BaseLayout title={`${platform.title} | Lumma Creative Studio`} description={platform.shortDescription}>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Aya platform</span>
+      <h1 class="display">{platform.title}</h1>
+      <p class="lead">{platform.description}</p>
+      <span class="tag">{platform.category}</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container product-highlights-grid">
+      <div>
+        <span class="eyebrow">Learning focus</span>
+        <h2 class="title">A connected platform within the Aya universe.</h2>
+      </div>
+      <div class="highlights-list">
+        {platform.focus.map((item, index) => (
+          <div><span>0{index + 1}</span><strong>{item}</strong></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container product-navigation">
+      <div><span class="eyebrow">Explore Aya</span><h2 class="title">One platform, part of a wider learning world.</h2></div>
+      <div class="button-row">
+        <a class="button button-primary" href="/aya/">Aya universe</a>
+        <a class="button button-secondary" href="/products/">Explore products</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
