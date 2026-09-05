@@ -2,33 +2,37 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const team = [
-  ['Ratih Wahyu Sunita', 'Founder', 'Leads the creative and educational direction of Lumma and the development of family-centred learning experiences.'],
-  ['Muhamad Manjur Hasan Muammar', 'Co-Founder', 'Works across educational concepts, language learning, digital development, and the broader direction of the Lumma ecosystem.']
+  ['Ratih Wahyu Sunita', 'Founder', 'Leads the creative and educational direction of Lumma and the development of family-centred learning experiences.', 'Pendiri', 'Memimpin arah kreatif dan pendidikan Lumma serta pengembangan pengalaman belajar yang berpusat pada keluarga.'],
+  ['Muhamad Manjur Hasan Muammar', 'Co-Founder', 'Works across educational concepts, language learning, digital development, and the broader direction of the Lumma ecosystem.', 'Co-Founder', 'Bekerja dalam konsep pendidikan, pembelajaran bahasa, pengembangan digital, dan arah ekosistem Lumma secara keseluruhan.']
 ];
 ---
 
 <BaseLayout title="Our Team | Lumma Creative Studio" description="Meet the people behind Lumma Creative Studio and the work they are building.">
+  <script>
+    import '../scripts/lumma-i18n';
+  </script>
+
   <section class="page-hero team-hero">
     <div class="container">
-      <span class="eyebrow">Our team</span>
-      <h1 class="display">A small core team building a wider creative practice.</h1>
-      <p class="lead">Lumma combines educational thinking, creative development, language, storytelling, publishing, and technology. The core team sets direction while individual projects can involve additional specialists.</p>
+      <span class="eyebrow" data-lumma-en="Our team" data-lumma-id="Tim kami">Our team</span>
+      <h1 class="display" data-lumma-en="A small core team building a wider creative practice." data-lumma-id="Tim inti yang ringkas, dengan ruang untuk membangun praktik kreatif yang lebih luas.">A small core team building a wider creative practice.</h1>
+      <p class="lead" data-lumma-en="Lumma combines educational thinking, creative development, language, storytelling, publishing, and technology. The core team sets direction while individual projects can involve additional specialists." data-lumma-id="Lumma memadukan pemikiran pendidikan, pengembangan kreatif, bahasa, cerita, penerbitan, dan teknologi. Tim inti menetapkan arah, sementara proyek tertentu dapat melibatkan para spesialis tambahan.">Lumma combines educational thinking, creative development, language, storytelling, publishing, and technology. The core team sets direction while individual projects can involve additional specialists.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <div class="section-heading">
-        <div><span class="eyebrow">Core team</span><h2 class="title">The people behind Lumma.</h2></div>
-        <p>Public biographies focus on current responsibilities and areas of work rather than private or unverified credentials.</p>
+        <div><span class="eyebrow" data-lumma-en="Core team" data-lumma-id="Tim inti">Core team</span><h2 class="title" data-lumma-en="The people behind Lumma." data-lumma-id="Orang-orang di balik Lumma.">The people behind Lumma.</h2></div>
+        <p data-lumma-en="Public biographies focus on current responsibilities and areas of work rather than private or unverified credentials." data-lumma-id="Biografi publik berfokus pada tanggung jawab dan bidang pekerjaan saat ini, bukan pada informasi pribadi atau kredensial yang belum diverifikasi.">Public biographies focus on current responsibilities and areas of work rather than private or unverified credentials.</p>
       </div>
       <div class="grid grid-2 team-grid">
-        {team.map(([name, role, text], index) => (
+        {team.map(([name, roleEn, textEn, roleId, textId], index) => (
           <article class="team-card">
             <span class="team-index">0{index + 1}</span>
-            <span class="tag">{role}</span>
+            <span class="tag" data-lumma-en={roleEn} data-lumma-id={roleId}>{roleEn}</span>
             <h2>{name}</h2>
-            <p>{text}</p>
+            <p data-lumma-en={textEn} data-lumma-id={textId}>{textEn}</p>
           </article>
         ))}
       </div>
@@ -37,8 +41,8 @@ const team = [
 
   <section class="section section-soft">
     <div class="container team-extension-grid">
-      <div><span class="eyebrow">Working beyond the core team</span><h2 class="title">The right expertise for the right project.</h2></div>
-      <div><p class="lead">Lumma may work with educators, reviewers, writers, illustrators, translators, publishers, developers, schools, and other specialists when their expertise contributes directly to a project.</p><a class="button button-primary" href="/collaborate/">Explore collaboration</a></div>
+      <div><span class="eyebrow" data-lumma-en="Working beyond the core team" data-lumma-id="Bekerja bersama tim yang lebih luas">Working beyond the core team</span><h2 class="title" data-lumma-en="The right expertise for the right project." data-lumma-id="Keahlian yang tepat untuk setiap proyek.">The right expertise for the right project.</h2></div>
+      <div><p class="lead" data-lumma-en="Lumma may work with educators, reviewers, writers, illustrators, translators, publishers, developers, schools, and other specialists when their expertise contributes directly to a project." data-lumma-id="Lumma dapat bekerja bersama pendidik, penelaah, penulis, ilustrator, penerjemah, penerbit, pengembang, sekolah, dan spesialis lain ketika keahlian mereka dapat memberikan kontribusi langsung pada sebuah proyek.">Lumma may work with educators, reviewers, writers, illustrators, translators, publishers, developers, schools, and other specialists when their expertise contributes directly to a project.</p><a class="button button-primary" href="/collaborate/" data-lumma-en="Explore collaboration" data-lumma-id="Lihat peluang kolaborasi">Explore collaboration</a></div>
     </div>
   </section>
 </BaseLayout>
