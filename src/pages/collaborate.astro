@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const areas = ['Islamic educational review', 'Education and curriculum', 'Writing and storytelling', 'Illustration and visual development', 'Publishing', 'Translation and localisation', 'Animation and media', 'Web and product development', 'Schools and organisations'];
+---
+<BaseLayout title="Collaborate With Lumma" description="Explore opportunities to collaborate with Lumma Creative Studio.">
+  <section class="page-hero"><div class="container"><span class="eyebrow">Collaboration</span><h1 class="display">Let's build meaningful learning experiences together.</h1><p class="lead">We are interested in working with people and organisations whose knowledge or capabilities can strengthen useful educational work for Muslim families.</p></div></section>
+  <section class="section"><div class="container"><h2 class="title">Areas of collaboration</h2><div class="grid grid-3">{areas.map((area) => (<article class="card"><h3>{area}</h3></article>))}</div></div></section>
+  <section class="section section-soft"><div class="container"><div class="card"><h2>Start a conversation.</h2><p class="lead">Tell us what you are working on and how you think a collaboration could be useful.</p><a class="button button-primary" href="/contact/">Contact Lumma</a></div></div></section>
+</BaseLayout>
