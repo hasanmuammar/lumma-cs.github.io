@@ -24,10 +24,18 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffaf6" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#18151c" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffaf7" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17151d" />
     <title>{title}</title>
+    <script is:inline>
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      const applySystemTheme = () => {
+        document.documentElement.dataset.theme = media.matches ? 'dark' : 'light';
+        document.documentElement.style.colorScheme = media.matches ? 'dark' : 'light';
+      };
+      applySystemTheme();
+      media.addEventListener?.('change', applySystemTheme);
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
