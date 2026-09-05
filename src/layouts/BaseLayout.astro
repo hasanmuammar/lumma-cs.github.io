@@ -5,8 +5,6 @@ import '../styles/resources.css';
 import '../styles/studio-pages.css';
 import '../styles/language.css';
 import '../styles/theme.css';
-import '../styles/layout-tuning.css';
-import '../styles/layout-consistency.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -26,28 +24,19 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffaf6" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111316" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#fffaf6" />
     <title>{title}</title>
-    <script is:inline>
-      (() => {
-        const media = window.matchMedia('(prefers-color-scheme: dark)');
-        const applySystemTheme = () => {
-          const theme = media.matches ? 'dark' : 'light';
-          document.documentElement.dataset.theme = theme;
-          document.documentElement.style.colorScheme = theme;
-        };
-        applySystemTheme();
-        media.addEventListener?.('change', applySystemTheme);
-      })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      import '../scripts/i18n-client';
+    </script>
   </head>
   <body>
     <Header />
-    <main>
+    <main id="main-content">
       <slot />
     </main>
     <Footer />
