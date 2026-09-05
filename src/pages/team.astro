@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const base = import.meta.env.BASE_URL;
 const team = [
   ['Ratih Wahyu Sunita', 'Founder', 'Leads the creative and educational direction of Lumma and the development of family-centred learning experiences.', 'Pendiri', 'Memimpin arah kreatif dan pendidikan Lumma serta pengembangan pengalaman belajar yang berpusat pada keluarga.'],
   ['Muhamad Manjur Hasan Muammar', 'Co-Founder', 'Works across educational concepts, language learning, digital development, and the broader direction of the Lumma ecosystem.', 'Co-Founder', 'Bekerja dalam konsep pendidikan, pembelajaran bahasa, pengembangan digital, dan arah ekosistem Lumma secara keseluruhan.']
@@ -8,10 +9,6 @@ const team = [
 ---
 
 <BaseLayout title="Our Team | Lumma Creative Studio" description="Meet the people behind Lumma Creative Studio and the work they are building.">
-  <script>
-    import '../scripts/lumma-i18n';
-  </script>
-
   <section class="page-hero team-hero">
     <div class="container">
       <span class="eyebrow" data-lumma-en="Our team" data-lumma-id="Tim kami">Our team</span>
@@ -42,7 +39,7 @@ const team = [
   <section class="section section-soft">
     <div class="container team-extension-grid">
       <div><span class="eyebrow" data-lumma-en="Working beyond the core team" data-lumma-id="Bekerja bersama tim yang lebih luas">Working beyond the core team</span><h2 class="title" data-lumma-en="The right expertise for the right project." data-lumma-id="Keahlian yang tepat untuk setiap proyek.">The right expertise for the right project.</h2></div>
-      <div><p class="lead" data-lumma-en="Lumma may work with educators, reviewers, writers, illustrators, translators, publishers, developers, schools, and other specialists when their expertise contributes directly to a project." data-lumma-id="Lumma dapat bekerja bersama pendidik, penelaah, penulis, ilustrator, penerjemah, penerbit, pengembang, sekolah, dan spesialis lain ketika keahlian mereka dapat memberikan kontribusi langsung pada sebuah proyek.">Lumma may work with educators, reviewers, writers, illustrators, translators, publishers, developers, schools, and other specialists when their expertise contributes directly to a project.</p><a class="button button-primary" href="/collaborate/" data-lumma-en="Explore collaboration" data-lumma-id="Lihat peluang kolaborasi">Explore collaboration</a></div>
+      <div><p class="lead" data-lumma-en="Lumma may work with educators, reviewers, writers, illustrators, translators, publishers, developers, schools, and other specialists when their expertise contributes directly to a project." data-lumma-id="Lumma dapat bekerja bersama pendidik, penelaah, penulis, ilustrator, penerjemah, penerbit, pengembang, sekolah, dan spesialis lain ketika keahlian mereka dapat memberikan kontribusi langsung pada sebuah proyek.">Lumma may work with educators, reviewers, writers, illustrators, translators, publishers, developers, schools, and other specialists when their expertise contributes directly to a project.</p><a class="button button-primary" href={`${base}collaborate/`} data-lumma-en="Explore collaboration" data-lumma-id="Lihat peluang kolaborasi">Explore collaboration</a></div>
     </div>
   </section>
 </BaseLayout>
