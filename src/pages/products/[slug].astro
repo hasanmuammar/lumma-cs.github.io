@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products, getProduct } from '../../data/products';
+
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { slug: product.slug } }));
+}
+
+const { slug } = Astro.params;
+const product = getProduct(slug ?? '');
+
+if (!product) {
+  return new Response(null, { status: 404, statusText: 'Not found' });
+}
+---
+
+<BaseLayout title={`${product.title} | Lumma Creative Studio`} description={product.shortDescription}>
+  <section class="product-detail-hero">
+    <div class="container product-detail-grid">
+      <div>
+        <span class="product-status product-status-large">{product.statusLabel}</span>
+        <span class="eyebrow product-category">{product.category}</span>
+        <h1 class="display">{product.title}</h1>
+        <p class="lead">{product.description}</p>
+        <div class="product-meta">
+          <div><span>Designed for</span><strong>{product.audience}</strong></div>
+          <div><span>Connected to</span><strong>{product.relatedArea}</strong></div>
+        </div>
+      </div>
+      <aside class="product-detail-panel">
+        <span class="eyebrow">Learning formats</span>
+        <div class="format-list">
+          {product.format.map((item) => <span>{item}</span>)}
+        </div>
+        <p>This public product page describes the learning direction and experience without disclosing internal plans, commercial assumptions, or unreleased strategy.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container product-highlights-grid">
+      <div><span class="eyebrow">Core direction</span><h2 class="title">What this experience is designed to support.</h2></div>
+      <div class="highlights-list">
+        {product.highlights.map((item, index) => (
+          <div><span>0{index + 1}</span><strong>{item}</strong></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container product-navigation">
+      <div><span class="eyebrow">Explore further</span><h2 class="title">Part of a wider learning ecosystem.</h2></div>
+      <div class="button-row">
+        <a class="button button-primary" href="/aya/">Explore Aya</a>
+        <a class="button button-secondary" href="/products/">All products</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
