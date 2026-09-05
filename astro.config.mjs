@@ -5,6 +5,7 @@ export default defineConfig({
   site: 'https://hasanmuammar.github.io',
   base: '/lumma-cs.github.io',
   trailingSlash: 'always',
+  publicDir: './assets',
   build: {
     format: 'directory'
   }
