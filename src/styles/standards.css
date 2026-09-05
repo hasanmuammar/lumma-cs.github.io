@@ -30,6 +30,15 @@
   --radius-md: .75rem;
   --radius-lg: 1rem;
   --header-height: 5rem;
+  --background: var(--page-bg);
+  --ink: var(--text);
+  --muted: var(--text-muted);
+  --line: var(--border);
+  --brand: var(--lumma-orange);
+  --brand-dark: #b84a22;
+  --accent: var(--lumma-yellow);
+  --shadow: var(--shadow-md);
+  --max-width: var(--content-max);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,6 +53,7 @@
     --focus: #65c1ee;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, .25);
     --shadow-md: 0 16px 38px rgba(0, 0, 0, .28);
+    --brand-dark: #ef9b7a;
   }
 }
 
@@ -78,28 +88,21 @@ button, input, textarea, select {
   font: inherit;
 }
 
-a {
-  color: inherit;
-}
+a { color: inherit; }
 
 :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 
-::selection {
-  background: var(--lumma-pink);
-  color: #202124;
-}
+::selection { background: var(--lumma-pink); color: #202124; }
 
 .container {
   width: min(var(--content-max), calc(100% - (var(--gutter) * 2)));
   margin-inline: auto;
 }
 
-.section {
-  padding-block: clamp(4rem, 7vw, 6rem);
-}
+.section { padding-block: clamp(4rem, 7vw, 6rem); }
 
 main > section:first-child,
 main > section:first-child.hero,
@@ -160,10 +163,7 @@ main > section:first-child.about-hero {
   text-transform: uppercase;
 }
 
-.grid {
-  display: grid;
-  gap: var(--space-5);
-}
+.grid { display: grid; gap: var(--space-5); }
 
 .card,
 .capability-card,
@@ -219,33 +219,11 @@ main > section:first-child.about-hero {
   transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
 }
 
-.button-primary {
-  background: var(--lumma-orange);
-  color: #fff;
-}
-
-.button-primary:hover {
-  background: color-mix(in srgb, var(--lumma-orange) 88%, #000);
-  transform: translateY(-1px);
-}
-
-.button-secondary {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
-}
-
-.button-secondary:hover {
-  background: var(--surface-soft);
-  border-color: color-mix(in srgb, var(--lumma-orange) 35%, var(--border));
-}
-
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
-}
+.button-primary { background: var(--lumma-orange); color: #fff; }
+.button-primary:hover { background: color-mix(in srgb, var(--lumma-orange) 88%, #000); transform: translateY(-1px); }
+.button-secondary { background: var(--surface); border-color: var(--border); color: var(--text); }
+.button-secondary:hover { background: var(--surface-soft); border-color: color-mix(in srgb, var(--lumma-orange) 35%, var(--border)); }
+.button-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
 
 .tag,
 .catalogue-summary span,
@@ -260,85 +238,28 @@ main > section:first-child.about-hero {
   font-weight: 600;
 }
 
-.text-link {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  gap: .4rem;
-  color: var(--text);
-  font-weight: 700;
-  text-decoration: none;
-}
+.text-link { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .4rem; color: var(--text); font-weight: 700; text-decoration: none; }
+.text-link:hover { color: var(--lumma-orange); }
 
-.text-link:hover {
-  color: var(--lumma-orange);
-}
-
-.site-header {
-  background: color-mix(in srgb, var(--page-bg) 94%, transparent);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(16px);
-}
-
-.nav {
-  min-height: var(--header-height);
-  gap: var(--space-6);
-}
-
-.brand-logo {
-  width: clamp(8rem, 11vw, 10rem);
-  height: auto;
-}
-
-.nav-links {
-  gap: clamp(1rem, 1.8vw, 1.5rem);
-  font-size: .9375rem;
-}
-
+.site-header { background: color-mix(in srgb, var(--page-bg) 94%, transparent); border-bottom: 1px solid var(--border); backdrop-filter: blur(16px); }
+.nav { min-height: var(--header-height); gap: var(--space-6); }
+.brand-logo { width: clamp(8rem, 11vw, 10rem); height: auto; }
+.nav-links { gap: clamp(1rem, 1.8vw, 1.5rem); font-size: .9375rem; }
 .nav-links > a,
 .nav-group summary,
-.nav-contact-link {
-  min-height: 2.75rem;
-  padding: .6rem 0;
-  color: var(--text-muted);
-}
-
+.nav-contact-link { min-height: 2.75rem; padding: .6rem 0; color: var(--text-muted); }
 .nav-links > a:hover,
 .nav-links > a[aria-current="page"],
 .nav-group summary:hover,
 .nav-group summary.active,
 .nav-contact-link:hover,
-.nav-contact-link[aria-current="page"] {
-  color: var(--text);
-}
+.nav-contact-link[aria-current="page"] { color: var(--text); }
+.nav-popover { min-width: 18rem; padding: var(--space-2); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+.nav-popover a { display: block; min-height: 2.75rem; padding: .7rem .75rem; border-radius: var(--radius-sm); color: var(--text-muted); }
+.nav-popover a:hover, .nav-popover a:focus-visible { background: var(--surface-soft); color: var(--text); }
 
-.nav-popover {
-  min-width: 18rem;
-  padding: var(--space-2);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-}
-
-.nav-popover a {
-  display: block;
-  min-height: 2.75rem;
-  padding: .7rem .75rem;
-  border-radius: var(--radius-sm);
-  color: var(--text-muted);
-}
-
-.nav-popover a:hover,
-.nav-popover a:focus-visible {
-  background: var(--surface-soft);
-  color: var(--text);
-}
-
-.footer {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-}
+.footer { background: var(--surface); border-top: 1px solid var(--border); }
+.footer-logo { width: 10.5rem; height: auto; }
 
 .page-hero::before,
 .products-hero::before,
@@ -348,77 +269,29 @@ main > section:first-child.about-hero {
 .aya-hero::before,
 .team-hero::before,
 .collaborate-hero::before,
-.about-hero::before {
-  background: none;
-}
+.about-hero::before { background: none; }
 
-.hero-world,
-.aya-character-panel,
-.platform-logo-panel,
-.product-detail-panel,
-.resource-detail-panel,
-.contact-intro-card {
-  box-shadow: var(--shadow-md);
-}
-
-.project-card-1,
-.project-card-2,
-.project-card-3,
-.product-placeholder,
-.hero-world,
-.aya-character-panel {
-  color: var(--text);
-}
-
+.hero-world, .aya-character-panel, .platform-logo-panel, .product-detail-panel, .resource-detail-panel, .contact-intro-card { box-shadow: var(--shadow-md); }
 .project-card-1 { background: color-mix(in srgb, var(--lumma-yellow) 14%, var(--surface)); }
 .project-card-2 { background: color-mix(in srgb, var(--lumma-blue) 10%, var(--surface)); }
 .project-card-3 { background: color-mix(in srgb, var(--lumma-green) 10%, var(--surface)); }
 
-.intro-band,
-.collaboration-card,
-.collaboration-cta,
-.aya-family-cta {
-  background: var(--surface-soft);
-  color: var(--text);
-}
-
-.intro-band .title,
-.intro-band p,
-.collaboration-card .title,
-.collaboration-card p,
-.collaboration-cta .title,
-.collaboration-cta p,
-.aya-family-cta .title,
-.aya-family-cta p {
-  color: var(--text);
-}
-
-.intro-band .lead,
-.collaboration-card .lead,
-.collaboration-cta .lead,
-.aya-family-cta .lead {
-  color: var(--text-muted);
-}
+.intro-band, .collaboration-card, .collaboration-cta, .aya-family-cta { background: var(--surface-soft); color: var(--text); }
+.intro-band .title, .intro-band p, .collaboration-card .title, .collaboration-card p, .collaboration-cta .title, .collaboration-cta p, .aya-family-cta .title, .aya-family-cta p { color: var(--text); }
+.intro-band .lead, .collaboration-card .lead, .collaboration-cta .lead, .aya-family-cta .lead { color: var(--text-muted); }
 
 .status-available { color: var(--lumma-green); background: color-mix(in srgb, var(--lumma-green) 12%, var(--surface)); }
 .status-coming-soon { color: var(--lumma-orange); background: color-mix(in srgb, var(--lumma-orange) 12%, var(--surface)); }
 .status-developing { color: var(--lumma-blue); background: color-mix(in srgb, var(--lumma-blue) 12%, var(--surface)); }
+.resource-status { color: var(--text); background: color-mix(in srgb, var(--lumma-yellow) 14%, var(--surface)); }
+
+.world-card, .world-orbit, .aya-node, .resource-detail-panel { color: var(--text); }
+.world-card, .world-orbit, .aya-node { background: color-mix(in srgb, var(--surface) 94%, transparent); border-color: var(--border); }
 
 @media (max-width: 900px) {
   :root { --header-height: 4.5rem; }
-  .nav-links.is-open {
-    top: calc(100% + .5rem);
-    left: var(--gutter);
-    right: var(--gutter);
-    padding: var(--space-3) var(--space-4);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    background: var(--surface);
-    box-shadow: var(--shadow-md);
-  }
-  .nav-links > a,
-  .nav-group summary,
-  .nav-contact-link { min-height: 2.75rem; }
+  .nav-links.is-open { top: calc(100% + .5rem); left: var(--gutter); right: var(--gutter); padding: var(--space-3) var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); box-shadow: var(--shadow-md); }
+  .nav-links > a, .nav-group summary, .nav-contact-link { min-height: 2.75rem; }
 }
 
 @media (max-width: 600px) {
