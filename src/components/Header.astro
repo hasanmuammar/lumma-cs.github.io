@@ -1,0 +1,34 @@
+---
+const currentPath = Astro.url.pathname;
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/aya/', label: 'Aya' },
+  { href: '/products/', label: 'Products' },
+  { href: '/team/', label: 'Team' },
+  { href: '/collaborate/', label: 'Collaborate' }
+];
+---
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="/" aria-label="Lumma Creative Studio home">
+      <span class="brand-mark">L</span>
+      <span>Lumma Creative Studio</span>
+    </a>
+    <button class="menu-button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+    <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
+      {navItems.map((item) => (
+        <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>{item.label}</a>
+      ))}
+      <a class="button button-primary" href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+<script>
+  const button = document.querySelector('.menu-button');
+  const navigation = document.querySelector('#primary-navigation');
+  button?.addEventListener('click', () => {
+    const isOpen = navigation?.classList.toggle('is-open');
+    button.setAttribute('aria-expanded', String(Boolean(isOpen)));
+  });
+</script>
