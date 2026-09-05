@@ -3,7 +3,7 @@ import { translations, type Language } from '../data/translations';
 const storageKey = 'lumma-language';
 const sharedTranslations: Record<Language, Record<string, string>> = {
   en: {
-    Home: 'Home', About: 'About', Aya: 'Aya', 'Aya universe': 'Aya universe',
+    Home: 'Home', About: 'About', Studio: 'Studio', Aya: 'Aya', 'Aya universe': 'Aya universe',
     'Aya The Little Muslim': 'Aya The Little Muslim', 'Aya Fun Lingua': 'Aya Fun Lingua',
     'Aya Books': 'Aya Books', Products: 'Products', 'All products': 'All products',
     Team: 'Team', Collaborate: 'Collaborate', Contact: 'Contact',
@@ -11,7 +11,7 @@ const sharedTranslations: Record<Language, Record<string, string>> = {
     'Creative learning experiences for Muslim families.': 'Creative learning experiences for Muslim families.'
   },
   id: {
-    Home: 'Beranda', About: 'Tentang', Aya: 'Aya', 'Aya universe': 'Dunia Aya',
+    Home: 'Beranda', About: 'Tentang', Studio: 'Studio', Aya: 'Aya', 'Aya universe': 'Dunia Aya',
     'Aya The Little Muslim': 'Aya The Little Muslim', 'Aya Fun Lingua': 'Aya Fun Lingua',
     'Aya Books': 'Aya Books', Products: 'Produk', 'All products': 'Semua produk',
     Team: 'Tim', Collaborate: 'Kolaborasi', Contact: 'Kontak',
