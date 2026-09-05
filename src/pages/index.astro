@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 
 const capabilities = [
   ['Islamic Learning', 'Age-appropriate learning experiences connected to faith, adab, and everyday life.'],
@@ -23,8 +24,8 @@ const ecosystem = [
         <h1 class="display">Creative learning experiences for Muslim families.</h1>
         <p class="lead">We bring together Islamic learning, language, storytelling, books, family resources, and thoughtful digital experiences.</p>
         <div class="button-row">
-          <a class="button button-primary" href="/aya/">Explore Aya</a>
-          <a class="button button-secondary" href="/products/">Explore our work</a>
+          <a class="button button-primary" href={`${base}aya/`}>Explore Aya</a>
+          <a class="button button-secondary" href={`${base}products/`}>Explore our work</a>
         </div>
         <div class="stat-row" aria-label="Lumma focus areas">
           <div class="stat"><strong>Faith</strong><span>Meaningful learning</span></div>
@@ -64,7 +65,7 @@ const ecosystem = [
           <article class="card"><span class="tag">Aya</span><h3>{title}</h3><p>{text}</p></article>
         ))}
       </div>
-      <div class="button-row"><a class="button button-secondary" href="/aya/">Discover the Aya universe</a></div>
+      <div class="button-row"><a class="button button-secondary" href={`${base}aya/`}>Discover the Aya universe</a></div>
     </div>
   </section>
 
@@ -78,7 +79,7 @@ const ecosystem = [
       <div class="card">
         <h3>Building with others</h3>
         <p>We are interested in meaningful collaborations with educators, writers, illustrators, developers, publishers, schools, organisations, and specialists who share relevant educational goals.</p>
-        <a class="button button-primary" href="/collaborate/">Collaborate with Lumma</a>
+        <a class="button button-primary" href={`${base}collaborate/`}>Collaborate with Lumma</a>
       </div>
     </div>
   </section>
