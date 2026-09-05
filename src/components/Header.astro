@@ -10,15 +10,16 @@ const isActive = (path: string) => currentPath === normalized(path) || currentPa
   <div class="container nav">
     <a class="brand" href={base} aria-label="Lumma Creative Studio home">
       <span class="brand-mark" aria-hidden="true">L</span>
-      <span>Lumma Creative Studio</span>
+      <span class="brand-copy"><strong>Lumma</strong><small>Creative Studio</small></span>
     </a>
 
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation">
-      <span aria-hidden="true">Menu</span>
+      <span class="menu-label">Menu</span>
+      <span class="menu-icon" aria-hidden="true"></span>
     </button>
 
     <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
-      <a href={`${base}about/`} aria-current={isActive(`${base}about/`) ? 'page' : undefined} data-i18n="About">About</a>
+      <a href={base} aria-current={isActive(base) ? 'page' : undefined} data-i18n="Home">Home</a>
 
       <details class="nav-group">
         <summary class:list={{ active: isActive(`${base}aya/`) }} data-i18n="Aya">Aya</summary>
@@ -30,31 +31,35 @@ const isActive = (path: string) => currentPath === normalized(path) || currentPa
         </div>
       </details>
 
+      <a href={`${base}products/`} aria-current={isActive(`${base}products/`) ? 'page' : undefined} data-i18n="Products">Products</a>
+      <a href={`${base}resources/`} aria-current={isActive(`${base}resources/`) ? 'page' : undefined} data-i18n="Resources">Resources</a>
+
       <details class="nav-group">
-        <summary class:list={{ active: isActive(`${base}products/`) }} data-i18n="Products">Products</summary>
-        <div class="nav-popover">
-          <a href={`${base}products/`} data-i18n="All products">All products</a>
-          <a href={`${base}products/aya-books/`} data-i18n="Aya Books">Aya Books</a>
+        <summary class:list={{ active: isActive(`${base}about/`) || isActive(`${base}team/`) || isActive(`${base}collaborate/`) }} data-i18n="About">Studio</summary>
+        <div class="nav-popover nav-popover-studio">
+          <a href={`${base}about/`} data-i18n="About">About Lumma</a>
+          <a href={`${base}team/`} data-i18n="Team">Team</a>
+          <a href={`${base}collaborate/`} data-i18n="Collaborate">Collaborate</a>
         </div>
       </details>
 
-      <a href={`${base}team/`} aria-current={isActive(`${base}team/`) ? 'page' : undefined} data-i18n="Team">Team</a>
-      <a href={`${base}collaborate/`} aria-current={isActive(`${base}collaborate/`) ? 'page' : undefined} data-i18n="Collaborate">Collaborate</a>
-      <a class="button button-primary nav-contact" href={`${base}contact/`} data-i18n="Contact">Contact</a>
-      <LanguageSwitcher />
+      <div class="nav-actions">
+        <LanguageSwitcher />
+        <a class="button button-primary nav-contact" href={`${base}contact/`} data-i18n="Contact">Contact</a>
+      </div>
     </nav>
   </div>
 </header>
 <script>
-  const button = document.querySelector('.menu-button');
-  const navigation = document.querySelector('#primary-navigation');
+  const button = document.querySelector<HTMLButtonElement>('.menu-button');
+  const navigation = document.querySelector<HTMLElement>('#primary-navigation');
 
   button?.addEventListener('click', () => {
     const isOpen = navigation?.classList.toggle('is-open');
     button.setAttribute('aria-expanded', String(Boolean(isOpen)));
   });
 
-  navigation?.querySelectorAll('a').forEach((link) => {
+  navigation?.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
     link.addEventListener('click', () => {
       navigation.classList.remove('is-open');
       button?.setAttribute('aria-expanded', 'false');
