@@ -4,7 +4,7 @@
   <button type="button" class="language-button" data-lang="id" aria-pressed="false">ID</button>
 </div>
 <script>
-  const translations = {
+  const translations: Record<'en' | 'id', Record<string, string>> = {
     en: {
       Home: 'Home', About: 'About', Aya: 'Aya', 'Aya universe': 'Aya universe',
       'Aya The Little Muslim': 'Aya The Little Muslim', 'Aya Fun Lingua': 'Aya Fun Lingua',
@@ -25,11 +25,11 @@
 
   const storageKey = 'lumma-language';
   const root = document.documentElement;
-  const buttons = [...document.querySelectorAll('.language-button')];
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('.language-button')];
 
-  function applyLanguage(lang) {
-    const selected = lang === 'id' ? 'id' : 'en';
-    document.querySelectorAll('[data-i18n]').forEach((element) => {
+  function applyLanguage(lang: string | null) {
+    const selected: 'en' | 'id' = lang === 'id' ? 'id' : 'en';
+    document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((element) => {
       const key = element.getAttribute('data-i18n');
       if (key && translations[selected][key]) element.textContent = translations[selected][key];
     });
@@ -38,7 +38,7 @@
       button.classList.toggle('active', active);
       button.setAttribute('aria-pressed', String(active));
     });
-    root.lang = selected === 'id' ? 'id' : 'en';
+    root.lang = selected;
     localStorage.setItem(storageKey, selected);
   }
 
