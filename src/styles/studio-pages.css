@@ -1,0 +1,126 @@
+/* Studio page layouts. Shared visual tokens and responsive primitives live in standards.css. */
+.about-hero,
+.team-hero,
+.collaborate-hero { border-bottom: 1px solid var(--line); }
+
+.about-hero-grid,
+.collaborate-hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.about-principle-card,
+.collaborate-intro-card {
+  min-height: 19rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-6);
+}
+
+.about-principle-card strong,
+.collaborate-intro-card strong {
+  margin: auto 0 var(--space-4);
+  color: var(--text);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.about-principle-card p,
+.collaborate-intro-card p { margin: 0; color: var(--muted); }
+
+.about-grid,
+.about-values-grid,
+.team-extension-grid,
+.collaborate-process-grid {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.about-grid p:not(.lead) { color: var(--muted); }
+
+.about-relationship-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.about-role-card {
+  min-height: 19rem;
+  padding: var(--space-6);
+}
+
+.about-role-accent {
+  background: color-mix(in srgb, var(--lumma-pink) 10%, var(--surface));
+}
+
+.role-index,
+.team-index {
+  display: block;
+  margin-bottom: var(--space-7);
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.about-role-card h3 { margin: 0 0 var(--space-2); font-size: 1.5rem; }
+.about-role-card p { margin: 0; color: var(--muted); }
+.about-values-list { border-top: 1px solid var(--line); }
+.about-values-list > div { padding-block: var(--space-4); border-bottom: 1px solid var(--line); }
+.about-values-list strong { font-size: 1.1rem; }
+.about-values-list p { margin: var(--space-1) 0 0; color: var(--muted); }
+.team-grid { margin-top: var(--space-6); }
+.team-card { position: relative; min-height: 20rem; padding: var(--space-6); }
+.team-card h2 { max-width: 12ch; margin: var(--space-4) 0 var(--space-3); font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.08; letter-spacing: -.035em; }
+.team-card p { max-width: 34rem; margin: 0; color: var(--muted); }
+.team-extension-grid .button { margin-top: var(--space-4); }
+
+.collaborate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: var(--space-6);
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.collaboration-area {
+  min-height: 13rem;
+  padding: var(--space-5);
+  background: var(--surface);
+}
+
+.collaboration-area > span { color: var(--brand); font-size: .76rem; font-weight: 800; }
+.collaboration-area h3 { margin: var(--space-6) 0 var(--space-2); font-size: 1.2rem; }
+.collaboration-area p { margin: 0; color: var(--muted); font-size: .95rem; }
+.collaborate-process { border-top: 1px solid var(--line); }
+.collaborate-process > div { display: grid; grid-template-columns: 3rem 1fr; gap: var(--space-4); align-items: start; padding-block: var(--space-4); border-bottom: 1px solid var(--line); }
+.collaborate-process strong { color: var(--brand); }
+.collaborate-process p { margin: 0; color: var(--muted); }
+.collaboration-cta { display: flex; justify-content: space-between; align-items: end; gap: var(--space-6); padding: var(--space-7); }
+.collaboration-cta .title { margin-bottom: var(--space-2); }
+
+@media (max-width: 900px) {
+  .about-hero-grid,
+  .collaborate-hero-grid,
+  .about-grid,
+  .about-values-grid,
+  .team-extension-grid,
+  .collaborate-process-grid,
+  .about-relationship-grid,
+  .collaborate-grid { grid-template-columns: 1fr; }
+  .about-hero-grid,
+  .collaborate-hero-grid,
+  .about-grid,
+  .about-values-grid,
+  .team-extension-grid,
+  .collaborate-process-grid { gap: var(--space-7); }
+  .collaboration-cta { align-items: flex-start; flex-direction: column; }
+}

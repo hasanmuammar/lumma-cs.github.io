@@ -1,0 +1,104 @@
+/* Resource layouts. Shared colours, typography, spacing, and controls are defined in standards.css. */
+.resources-hero,
+.resource-detail-hero {
+  border-bottom: 1px solid var(--line);
+}
+
+.resource-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+
+.resource-category {
+  padding: var(--space-6);
+}
+
+.resource-category h2 {
+  margin: var(--space-2) 0 var(--space-5);
+  font-size: 1.5rem;
+  letter-spacing: -.025em;
+}
+
+.resource-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.resource-card {
+  display: flex;
+  min-height: 15rem;
+  padding: var(--space-5);
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.resource-card h3 {
+  margin: var(--space-4) 0 var(--space-2);
+  font-size: 1.25rem;
+}
+
+.resource-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.resource-status,
+.resource-status-large {
+  display: inline-flex;
+  width: fit-content;
+  padding: .4rem .65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--lumma-yellow) 14%, var(--surface));
+  color: var(--text);
+  font-size: .75rem;
+  font-weight: 800;
+}
+
+.resource-status-large { margin-bottom: var(--space-3); }
+.resource-card .text-link { margin-top: var(--space-5); }
+
+.resource-principles,
+.resource-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: end;
+}
+
+.resource-detail-grid { grid-template-columns: 1.2fr .8fr; }
+
+.resource-detail-panel {
+  padding: var(--space-6);
+}
+
+.resource-detail-panel div + div {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--line);
+}
+
+.resource-detail-panel span {
+  display: block;
+  margin-bottom: var(--space-1);
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.resource-detail-panel strong { font-size: 1.05rem; }
+
+@media (max-width: 900px) {
+  .resource-category-grid,
+  .resource-principles,
+  .resource-detail-grid { grid-template-columns: 1fr; }
+  .resource-category { padding: var(--space-5); }
+  .resource-detail-grid { gap: var(--space-7); }
+}
+
+@media (max-width: 600px) {
+  .resource-card { min-height: auto; }
+}

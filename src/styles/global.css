@@ -1,0 +1,434 @@
+/*
+  Shared page layouts.
+  Theme tokens, typography, spacing, controls, navigation, and accessibility
+  are defined in standards.css. This file intentionally contains no duplicate
+  root tokens or hard-coded page colours.
+*/
+
+.section-soft { background: var(--surface-soft); }
+
+.grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Home */
+.hero { overflow: clip; }
+.hero-grid,
+.aya-home-grid,
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.hero-kicker {
+  margin: var(--space-2) 0 var(--space-5);
+  color: var(--muted);
+  font-size: .9375rem;
+  font-weight: 600;
+}
+
+.hero-lead { font-size: clamp(1rem, 1.2vw, 1.125rem); }
+
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-5);
+  color: var(--muted);
+  font-size: .875rem;
+}
+
+.hero-trust-row span::before {
+  content: '•';
+  margin-right: .45rem;
+  color: var(--lumma-orange);
+}
+
+.hero-world {
+  position: relative;
+  min-height: clamp(24rem, 42vw, 30rem);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg,
+    color-mix(in srgb, var(--lumma-yellow) 16%, var(--surface)),
+    color-mix(in srgb, var(--lumma-pink) 10%, var(--surface)) 48%,
+    color-mix(in srgb, var(--lumma-green) 12%, var(--surface)));
+}
+
+.world-sun {
+  position: absolute;
+  top: 9%;
+  right: 9%;
+  width: 8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--lumma-yellow) 28%, transparent);
+}
+
+.world-cloud {
+  position: absolute;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 76%, transparent);
+}
+.world-cloud::before,
+.world-cloud::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: inherit;
+}
+.world-cloud::before { width: 2.6rem; aspect-ratio: 1; left: 1rem; bottom: .45rem; }
+.world-cloud::after { width: 2.2rem; aspect-ratio: 1; right: .9rem; bottom: .25rem; }
+.cloud-one { top: 18%; left: 9%; transform: scale(.72); }
+.cloud-two { top: 42%; right: 6%; transform: scale(.55); }
+
+.world-card {
+  position: absolute;
+  right: 8%;
+  bottom: 8%;
+  left: 8%;
+  z-index: 2;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(10px);
+}
+.world-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--brand);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.world-card strong {
+  display: block;
+  color: var(--text);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+.world-card p { margin: var(--space-3) 0 0; color: var(--muted); }
+.world-orbit {
+  position: absolute;
+  z-index: 3;
+  padding: .5rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  font-size: .8125rem;
+  font-weight: 700;
+}
+.orbit-faith { top: 32%; left: 14%; }
+.orbit-language { top: 17%; left: 43%; }
+.orbit-family { right: 10%; bottom: 32%; }
+
+.intro-band .intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  max-width: var(--reading-max);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.section-heading .title { margin-bottom: 0; }
+.section-heading > p { max-width: 32rem; margin: 0; color: var(--muted); }
+
+.capability-grid,
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.capability-card {
+  display: flex;
+  min-height: 15rem;
+  flex-direction: column;
+  padding: var(--space-5);
+}
+.capability-number { color: var(--brand); font-size: .8125rem; font-weight: 800; }
+.capability-card h3 { margin: auto 0 var(--space-3); color: var(--text); font-size: 1.25rem; }
+.capability-card p { margin: 0; color: var(--muted); }
+
+.aya-home-copy .text-link { margin-top: var(--space-4); }
+.aya-ecosystem-map {
+  position: relative;
+  width: min(100%, 28rem);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border: 1px dashed var(--border);
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+    color-mix(in srgb, var(--lumma-pink) 13%, var(--surface)) 0 24%,
+    transparent 25%);
+}
+.aya-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6.5rem;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--lumma-orange);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.aya-node {
+  position: absolute;
+  padding: .55rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  font-size: .8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.node-top { top: 4%; left: 50%; transform: translateX(-50%); }
+.node-right { top: 50%; right: -4%; transform: translateY(-50%); }
+.node-bottom { bottom: 4%; left: 50%; transform: translateX(-50%); }
+.node-left { top: 50%; left: -7%; transform: translateY(-50%); }
+
+.project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.project-card {
+  display: flex;
+  min-height: 22rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.project-card-1 { background: color-mix(in srgb, var(--lumma-yellow) 13%, var(--surface)); }
+.project-card-2 { background: color-mix(in srgb, var(--lumma-blue) 10%, var(--surface)); }
+.project-card-3 { background: color-mix(in srgb, var(--lumma-green) 10%, var(--surface)); }
+.project-card h3 { margin: var(--space-4) 0 var(--space-2); color: var(--text); font-size: 1.5rem; }
+.project-card p { margin: 0; color: var(--muted); }
+.project-card a { align-self: flex-start; margin-top: var(--space-5); color: var(--text); font-weight: 700; }
+.aya-platform-logo { width: min(100%, 12rem); height: auto; margin-top: var(--space-4); }
+
+.family-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+.family-steps {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--border);
+}
+.family-steps > div {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  column-gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--surface);
+}
+.family-steps span { grid-row: span 2; color: var(--brand); font-weight: 800; }
+.family-steps strong { color: var(--text); }
+.family-steps p { grid-column: 2; margin: var(--space-1) 0 0; color: var(--muted); }
+
+.collaboration-section { background: var(--surface); }
+.collaboration-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+  gap: var(--space-7);
+  align-items: end;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.collaboration-actions { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+
+/* Aya universe */
+.aya-hero-grid,
+.aya-intro-grid,
+.platform-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.aya-intro-grid { align-items: start; }
+.aya-character-panel {
+  position: relative;
+  min-height: 26rem;
+  overflow: hidden;
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg,
+    color-mix(in srgb, var(--lumma-pink) 18%, var(--surface)),
+    color-mix(in srgb, var(--lumma-yellow) 10%, var(--surface)) 50%,
+    color-mix(in srgb, var(--lumma-green) 12%, var(--surface)));
+}
+.aya-character-panel > p {
+  position: absolute;
+  right: 10%;
+  bottom: 9%;
+  left: 10%;
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+}
+.aya-character-core {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: 10rem;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: var(--shadow-md);
+}
+.aya-character-core strong { color: var(--text); font-size: 1.5rem; letter-spacing: .08em; }
+.aya-character-core span { color: var(--muted); font-size: .75rem; }
+.aya-character-orbit { position: absolute; border: 1px dashed var(--border); border-radius: 50%; }
+.orbit-one { top: 12%; left: 10%; width: 10rem; aspect-ratio: 1; }
+.orbit-two { right: 10%; bottom: 14%; width: 7rem; aspect-ratio: 1; }
+
+.ecosystem-node {
+  position: absolute;
+  padding: .6rem .85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  font-size: .8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.node-center {
+  top: 50%;
+  left: 50%;
+  width: 7rem;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--lumma-orange);
+  color: #fff;
+  text-align: center;
+}
+.node-center span { font-size: .7rem; font-weight: 500; }
+.ecosystem-note { margin: var(--space-6) auto 0; text-align: center; }
+.aya-pathways .card,
+.aya-project-card { padding: var(--space-6); }
+.pathway-number { display: block; margin-bottom: var(--space-6); color: var(--brand); font-weight: 800; }
+.aya-project-card { display: flex; min-height: 20rem; flex-direction: column; }
+.aya-project-card h3 { margin: var(--space-4) 0 var(--space-2); }
+.aya-project-card p { margin: 0; color: var(--muted); }
+.aya-project-card .text-link { margin-top: auto; padding-top: var(--space-5); }
+.aya-family-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-6);
+  align-items: end;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.platform-logo-panel {
+  display: grid;
+  min-height: 18rem;
+  place-items: center;
+  padding: var(--space-7);
+}
+.platform-logo { width: min(100%, 18rem); height: auto; }
+
+/* Contact */
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, .9fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.contact-intro-card {
+  display: flex;
+  min-height: 18rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-6);
+}
+.contact-intro-card strong { margin: auto 0 var(--space-4); color: var(--text); font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.1; }
+.contact-intro-card p { margin: 0; color: var(--muted); }
+.contact-options-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
+.contact-option-card { min-height: 15rem; padding: var(--space-6); }
+.contact-option-index { display: block; margin-bottom: var(--space-6); color: var(--brand); font-size: .8125rem; font-weight: 800; }
+.contact-option-card h2 { margin: 0 0 var(--space-3); color: var(--text); font-size: 1.35rem; }
+.contact-option-card p { margin: 0; color: var(--muted); }
+.contact-option-card .text-link { margin-top: var(--space-5); }
+
+/* Footer */
+.footer { padding-block: var(--space-8); }
+.footer-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(10rem, .8fr)); gap: var(--space-7); }
+.footer-brand .lead { margin-bottom: var(--space-4); }
+.footer p { margin: var(--space-2) 0; color: var(--muted); }
+.footer a:hover { color: var(--lumma-orange); }
+.footer small { display: block; margin-top: var(--space-4); color: var(--muted); }
+.footer-language { margin-top: var(--space-4); }
+
+@media (max-width: 900px) {
+  .grid-2,
+  .grid-3,
+  .hero-grid,
+  .aya-home-grid,
+  .family-grid,
+  .aya-hero-grid,
+  .aya-intro-grid,
+  .platform-hero-grid,
+  .contact-hero-grid,
+  .collaboration-card,
+  .aya-family-cta,
+  .footer-grid { grid-template-columns: 1fr; }
+
+  .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-grid,
+  .contact-options-grid { grid-template-columns: 1fr; }
+  .section-heading { align-items: flex-start; flex-direction: column; }
+  .collaboration-card,
+  .aya-family-cta { align-items: flex-start; }
+  .aya-ecosystem-map { width: min(100%, 24rem); }
+  .footer-grid { gap: var(--space-6); }
+}
+
+@media (max-width: 600px) {
+  .capability-grid { grid-template-columns: 1fr; }
+  .hero-world { min-height: 22rem; }
+  .world-card { right: var(--space-4); bottom: var(--space-4); left: var(--space-4); }
+  .aya-character-panel { min-height: 22rem; }
+  .aya-character-core { width: 8rem; }
+  .aya-ecosystem-map { width: min(100%, 20rem); }
+  .node-right { right: -10%; }
+  .node-left { left: -13%; }
+}

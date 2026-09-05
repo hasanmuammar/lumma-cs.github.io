@@ -1,0 +1,68 @@
+<div class="language-switcher" role="group" aria-label="Language selection">
+  <button type="button" class="language-button" data-lang="en" aria-pressed="true" aria-label="Switch to English">
+    <span class="language-flag" aria-hidden="true">🇬🇧</span>
+    <span class="language-code">EN</span>
+  </button>
+  <span class="language-separator" aria-hidden="true">/</span>
+  <button type="button" class="language-button" data-lang="id" aria-pressed="false" aria-label="Beralih ke Bahasa Indonesia">
+    <span class="language-flag" aria-hidden="true">🇮🇩</span>
+    <span class="language-code">ID</span>
+  </button>
+</div>
+
+<style is:global>
+  .site-header .language-switcher,
+  .footer .language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: .2rem;
+    color: var(--text-muted);
+  }
+
+  .site-header .language-button,
+  .footer .language-button {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: .35rem;
+    padding: .5rem .55rem;
+    border: 1px solid transparent;
+    border-radius: .45rem;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .03em;
+    cursor: pointer;
+  }
+
+  .site-header .language-button:hover,
+  .site-header .language-button:focus-visible,
+  .site-header .language-button.active,
+  .footer .language-button:hover,
+  .footer .language-button:focus-visible,
+  .footer .language-button.active {
+    color: var(--text);
+    background: var(--surface-soft);
+    border-color: var(--border);
+  }
+
+  .language-flag {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .language-code { line-height: 1; }
+
+  .language-separator {
+    color: var(--border);
+    user-select: none;
+  }
+
+  @media (max-width: 900px) {
+    .site-header .language-switcher,
+    .footer .language-switcher {
+      justify-content: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+
+const areas = [
+  ['Islamic educational review', 'Review learning content for clarity, appropriateness, and sound educational framing.', 'Penelaahan pendidikan Islam', 'Menelaah konten pembelajaran agar jelas, sesuai, dan memiliki kerangka pendidikan yang baik.'],
+  ['Education and curriculum', 'Help shape learning objectives, age-appropriate progression, and practical educational use.', 'Pendidikan dan kurikulum', 'Membantu menyusun tujuan belajar, perkembangan yang sesuai usia, dan penggunaan pendidikan yang praktis.'],
+  ['Writing and storytelling', 'Develop stories, scripts, dialogue, and written learning materials.', 'Penulisan dan penceritaan', 'Mengembangkan cerita, naskah, dialog, dan materi pembelajaran tertulis.'],
+  ['Illustration and visual development', 'Create visual systems, illustrations, characters, and supporting educational assets.', 'Ilustrasi dan pengembangan visual', 'Membuat sistem visual, ilustrasi, karakter, dan aset pendidikan pendukung.'],
+  ['Publishing', 'Support the development and production of books and other educational publications.', 'Penerbitan', 'Mendukung pengembangan dan produksi buku serta publikasi pendidikan lainnya.'],
+  ['Translation and localisation', 'Adapt learning experiences for different languages and audiences while preserving intent and clarity.', 'Penerjemahan dan lokalisasi', 'Menyesuaikan pengalaman belajar untuk bahasa dan audiens yang berbeda dengan tetap menjaga maksud dan kejelasannya.'],
+  ['Animation and media', 'Contribute to video, animation, narration, and other media experiences.', 'Animasi dan media', 'Berkontribusi pada video, animasi, narasi, dan pengalaman media lainnya.'],
+  ['Web and product development', 'Build accessible websites, platforms, tools, and digital learning experiences.', 'Pengembangan web dan produk', 'Membangun situs web, platform, alat, dan pengalaman belajar digital yang mudah diakses.'],
+  ['Schools and organisations', 'Explore educational partnerships, pilot opportunities, and useful institutional collaboration.', 'Sekolah dan organisasi', 'Menjajaki kemitraan pendidikan, uji coba, dan kolaborasi kelembagaan yang bermanfaat.']
+];
+---
+
+<BaseLayout title="Collaborate With Lumma" description="Explore opportunities to collaborate with Lumma Creative Studio on educational and creative work.">
+  <section class="page-hero collaborate-hero">
+    <div class="container collaborate-hero-grid">
+      <div>
+        <span class="eyebrow" data-lumma-en="Collaboration" data-lumma-id="Kolaborasi">Collaboration</span>
+        <h1 class="display" data-lumma-en="Good educational work is rarely built alone." data-lumma-id="Pekerjaan pendidikan yang baik jarang dibangun sendirian.">Good educational work is rarely built alone.</h1>
+        <p class="lead" data-lumma-en="Lumma works with people and organisations whose knowledge, skills, or experience can strengthen useful learning experiences for Muslim families." data-lumma-id="Lumma bekerja bersama orang dan organisasi yang memiliki pengetahuan, keterampilan, atau pengalaman yang dapat memperkuat pengalaman belajar yang bermanfaat bagi keluarga Muslim.">Lumma works with people and organisations whose knowledge, skills, or experience can strengthen useful learning experiences for Muslim families.</p>
+      </div>
+      <div class="collaborate-intro-card">
+        <span class="tag" data-lumma-en="Build with us" data-lumma-id="Bangun bersama kami">Build with us</span>
+        <strong data-lumma-en="Bring expertise where it makes a practical difference." data-lumma-id="Bawa keahlian Anda pada bagian yang memang membutuhkannya.">Bring expertise where it makes a practical difference.</strong>
+        <p data-lumma-en="We value clear communication, relevant expertise, thoughtful review, and work that serves the learner." data-lumma-id="Kami menghargai komunikasi yang jelas, keahlian yang relevan, penelaahan yang cermat, dan pekerjaan yang benar-benar membantu pembelajar.">We value clear communication, relevant expertise, thoughtful review, and work that serves the learner.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div><span class="eyebrow" data-lumma-en="Areas of collaboration" data-lumma-id="Bidang kolaborasi">Areas of collaboration</span><h2 class="title" data-lumma-en="Different skills can strengthen different parts of the work." data-lumma-id="Keahlian yang berbeda dapat memperkuat bagian pekerjaan yang berbeda.">Different skills can strengthen different parts of the work.</h2></div>
+        <p data-lumma-en="The list is intentionally broad. A project may require only one specialist or a combination of several disciplines." data-lumma-id="Daftar ini sengaja dibuat luas. Sebuah proyek mungkin hanya membutuhkan satu spesialis atau gabungan beberapa bidang.">The list is intentionally broad. A project may require only one specialist or a combination of several disciplines.</p>
+      </div>
+      <div class="collaboration-grid">
+        {areas.map(([titleEn, textEn, titleId, textId], index) => (
+          <article class="collaboration-area">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <div><h3 data-lumma-en={titleEn} data-lumma-id={titleId}>{titleEn}</h3><p data-lumma-en={textEn} data-lumma-id={textId}>{textEn}</p></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container collaborate-process-grid">
+      <div><span class="eyebrow" data-lumma-en="A practical conversation" data-lumma-id="Percakapan yang praktis">A practical conversation</span><h2 class="title" data-lumma-en="Start with the work, not the pitch." data-lumma-id="Mulailah dari pekerjaan, bukan dari presentasi.">Start with the work, not the pitch.</h2></div>
+      <div class="collaborate-process">
+        <div><strong>01</strong><p data-lumma-en="Tell us what you do and what kind of contribution you have in mind." data-lumma-id="Ceritakan apa yang Anda kerjakan dan kontribusi seperti apa yang Anda bayangkan.">Tell us what you do and what kind of contribution you have in mind.</p></div>
+        <div><strong>02</strong><p data-lumma-en="We consider where your expertise could fit within current or future educational work." data-lumma-id="Kami mempertimbangkan di mana keahlian Anda dapat sesuai dengan pekerjaan pendidikan saat ini atau yang akan datang.">We consider where your expertise could fit within current or future educational work.</p></div>
+        <div><strong>03</strong><p data-lumma-en="Where there is a good fit, we define a clear scope and a practical way to work together." data-lumma-id="Jika terdapat kecocokan, kami menentukan ruang lingkup yang jelas dan cara kerja sama yang praktis.">Where there is a good fit, we define a clear scope and a practical way to work together.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container collaboration-cta">
+      <div><span class="eyebrow" data-lumma-en="Get in touch" data-lumma-id="Hubungi kami">Get in touch</span><h2 class="title" data-lumma-en="Have a relevant idea or capability?" data-lumma-id="Punya ide atau keahlian yang relevan?">Have a relevant idea or capability?</h2><p class="lead" data-lumma-en="Send a concise introduction and describe the work you are interested in contributing to." data-lumma-id="Kirimkan perkenalan singkat dan jelaskan pekerjaan yang ingin Anda kontribusikan.">Send a concise introduction and describe the work you are interested in contributing to.</p></div>
+      <a class="button button-primary" href={`${base}contact/`} data-lumma-en="Contact Lumma" data-lumma-id="Hubungi Lumma">Contact Lumma</a>
+    </div>
+  </section>
+</BaseLayout>

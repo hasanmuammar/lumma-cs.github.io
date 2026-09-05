@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { resources, getResource } from '../../data/resources';
+
+export function getStaticPaths() {
+  return resources.map((resource) => ({ params: { slug: resource.slug } }));
+}
+
+const resource = getResource(Astro.params.slug ?? '');
+
+if (!resource) {
+  return new Response(null, { status: 404, statusText: 'Not found' });
+}
+---
+
+<BaseLayout title={`${resource.title} | Lumma Creative Studio`} description={resource.shortDescription}>
+  <section class="resource-detail-hero">
+    <div class="container resource-detail-grid">
+      <div>
+        <span class="resource-status resource-status-large">{resource.statusLabel}</span>
+        <span class="eyebrow">{resource.category}</span>
+        <h1 class="display">{resource.title}</h1>
+        <p class="lead">{resource.description}</p>
+      </div>
+      <aside class="resource-detail-panel">
+        <div><span>Format</span><strong>{resource.format}</strong></div>
+        <div><span>Designed for</span><strong>{resource.audience}</strong></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container product-navigation">
+      <div><span class="eyebrow">Explore further</span><h2 class="title">Part of a growing public resource library.</h2></div>
+      <div class="button-row">
+        <a class="button button-primary" href="/resources/">All resources</a>
+        <a class="button button-secondary" href="/aya/">Explore Aya</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
