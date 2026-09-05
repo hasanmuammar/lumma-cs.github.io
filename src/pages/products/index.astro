@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 
 const products = [
   { title: 'Aya The Little Muslim', category: 'Stories & Islamic Learning', text: 'Character-led stories, Islamic lessons, duʿā, and everyday learning experiences.', status: 'Explore project' },
@@ -9,5 +10,5 @@ const products = [
 ---
 <BaseLayout title="Products | Lumma Creative Studio" description="Explore Lumma products, projects and educational resources.">
   <section class="page-hero"><div class="container"><span class="eyebrow">Products and projects</span><h1 class="display">Explore what Lumma is building.</h1><p class="lead">This catalogue will grow as books, activities, digital resources, and other learning experiences become available.</p></div></section>
-  <section class="section"><div class="container"><div class="grid grid-3">{products.map((product) => (<article class="card product-card"><div class="product-placeholder" aria-hidden="true"></div><span class="tag">{product.category}</span><h2>{product.title}</h2><p>{product.text}</p><a class="button button-secondary" href="/aya/">{product.status}</a></article>))}</div></div></section>
+  <section class="section"><div class="container"><div class="grid grid-3">{products.map((product) => (<article class="card product-card"><div class="product-placeholder" aria-hidden="true"></div><span class="tag">{product.category}</span><h2>{product.title}</h2><p>{product.text}</p><a class="button button-secondary" href={`${base}aya/`}>{product.status}</a></article>))}</div></div></section>
 </BaseLayout>
