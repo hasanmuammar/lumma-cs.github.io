@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const team = [
+  ['Ratih Wahyu Sunita', 'Founder', 'Creative and educational direction for Lumma and the development of family-centred learning experiences.'],
+  ['Muhamad Manjur Hasan Muammar', 'Co-Founder', 'Educational concepts, language learning, digital development, and the broader direction of the Lumma ecosystem.']
+];
+---
+<BaseLayout title="Our Team | Lumma Creative Studio" description="Meet the people building Lumma Creative Studio.">
+  <section class="page-hero"><div class="container"><span class="eyebrow">Our team</span><h1 class="display">The people behind Lumma.</h1><p class="lead">Lumma brings together education, creative development, language, storytelling, and technology to build useful learning experiences.</p></div></section>
+  <section class="section"><div class="container grid grid-2">{team.map(([name, role, text]) => (<article class="card"><span class="tag">{role}</span><h2>{name}</h2><p>{text}</p></article>))}</div></section>
+  <section class="section section-soft"><div class="container"><h2 class="title">An evolving team.</h2><p class="lead">As Lumma grows, we intend to work with relevant educators, creatives, reviewers, and specialists according to the needs of individual projects.</p></div></section>
+</BaseLayout>
