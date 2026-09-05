@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const capabilities = [
+  ['Islamic Learning', 'Age-appropriate learning experiences connected to faith, adab, and everyday life.'],
+  ['Language Learning', 'Practical language learning through familiar characters, stories, and repetition.'],
+  ['Stories & Books', 'Creative stories and educational reading experiences designed for young learners and families.'],
+  ['Digital Experiences', 'Thoughtful digital products and future learning tools built around practical educational needs.']
+];
+
+const ecosystem = [
+  ['Aya The Little Muslim', 'Stories, Islamic learning, duʿā, and everyday character development.'],
+  ['Aya Fun Lingua', 'Language learning through Aya, with English and Arabic at the centre.'],
+  ['Aya Books', 'Books, activities, printables, and reading experiences.'],
+  ['Future Learning', 'New digital and educational experiences developed as the ecosystem grows.']
+];
+---
+<BaseLayout title="Lumma Creative Studio | Creative Learning for Muslim Families" description="Lumma Creative Studio develops stories, learning resources, books and digital experiences for Muslim families.">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Lumma Creative Studio</span>
+        <h1 class="display">Creative learning experiences for Muslim families.</h1>
+        <p class="lead">We bring together Islamic learning, language, storytelling, books, family resources, and thoughtful digital experiences.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="/aya/">Explore Aya</a>
+          <a class="button button-secondary" href="/products/">Explore our work</a>
+        </div>
+        <div class="stat-row" aria-label="Lumma focus areas">
+          <div class="stat"><strong>Faith</strong><span>Meaningful learning</span></div>
+          <div class="stat"><strong>Language</strong><span>Practical communication</span></div>
+          <div class="stat"><strong>Family</strong><span>Everyday learning</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Lumma creative learning ecosystem">
+        <div class="hero-art-inner">
+          <span class="tag">A growing educational ecosystem</span>
+          <h2 class="title">Stories can become books, activities, language lessons, and shared family experiences.</h2>
+          <p class="lead">Aya provides a familiar world through which different forms of beneficial learning can connect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <span class="eyebrow">What we build</span>
+      <h2 class="title">Different formats, one educational direction.</h2>
+      <div class="grid grid-2">
+        {capabilities.map(([title, text]) => (
+          <article class="card"><h3>{title}</h3><p>{text}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">The Aya universe</span>
+      <h2 class="title">One familiar world, many ways to learn.</h2>
+      <p class="lead">Aya is the central creative and educational universe within Lumma. Its projects can support stories, language practice, Islamic lessons, books, activities, and future digital learning experiences.</p>
+      <div class="ecosystem">
+        {ecosystem.map(([title, text]) => (
+          <article class="card"><span class="tag">Aya</span><h3>{title}</h3><p>{text}</p></article>
+        ))}
+      </div>
+      <div class="button-row"><a class="button button-secondary" href="/aya/">Discover the Aya universe</a></div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container grid grid-2">
+      <div>
+        <span class="eyebrow">For families</span>
+        <h2 class="title">Learning should not stop at the screen or page.</h2>
+        <p class="lead">We want stories and resources to connect with conversations, habits, activities, and everyday family life.</p>
+      </div>
+      <div class="card">
+        <h3>Building with others</h3>
+        <p>We are interested in meaningful collaborations with educators, writers, illustrators, developers, publishers, schools, organisations, and specialists who share relevant educational goals.</p>
+        <a class="button button-primary" href="/collaborate/">Collaborate with Lumma</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
