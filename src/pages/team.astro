@@ -2,12 +2,43 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const team = [
-  ['Ratih Wahyu Sunita', 'Founder', 'Creative and educational direction for Lumma and the development of family-centred learning experiences.'],
-  ['Muhamad Manjur Hasan Muammar', 'Co-Founder', 'Educational concepts, language learning, digital development, and the broader direction of the Lumma ecosystem.']
+  ['Ratih Wahyu Sunita', 'Founder', 'Leads the creative and educational direction of Lumma and the development of family-centred learning experiences.'],
+  ['Muhamad Manjur Hasan Muammar', 'Co-Founder', 'Works across educational concepts, language learning, digital development, and the broader direction of the Lumma ecosystem.']
 ];
 ---
-<BaseLayout title="Our Team | Lumma Creative Studio" description="Meet the people building Lumma Creative Studio.">
-  <section class="page-hero"><div class="container"><span class="eyebrow">Our team</span><h1 class="display">The people behind Lumma.</h1><p class="lead">Lumma brings together education, creative development, language, storytelling, and technology to build useful learning experiences.</p></div></section>
-  <section class="section"><div class="container grid grid-2">{team.map(([name, role, text]) => (<article class="card"><span class="tag">{role}</span><h2>{name}</h2><p>{text}</p></article>))}</div></section>
-  <section class="section section-soft"><div class="container"><h2 class="title">An evolving team.</h2><p class="lead">As Lumma grows, we intend to work with relevant educators, creatives, reviewers, and specialists according to the needs of individual projects.</p></div></section>
+
+<BaseLayout title="Our Team | Lumma Creative Studio" description="Meet the people behind Lumma Creative Studio and the work they are building.">
+  <section class="page-hero team-hero">
+    <div class="container">
+      <span class="eyebrow">Our team</span>
+      <h1 class="display">A small core team building a wider creative practice.</h1>
+      <p class="lead">Lumma combines educational thinking, creative development, language, storytelling, publishing, and technology. The core team sets direction while individual projects can involve additional specialists.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div><span class="eyebrow">Core team</span><h2 class="title">The people behind Lumma.</h2></div>
+        <p>Public biographies focus on current responsibilities and areas of work rather than private or unverified credentials.</p>
+      </div>
+      <div class="grid grid-2 team-grid">
+        {team.map(([name, role, text], index) => (
+          <article class="team-card">
+            <span class="team-index">0{index + 1}</span>
+            <span class="tag">{role}</span>
+            <h2>{name}</h2>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container team-extension-grid">
+      <div><span class="eyebrow">Working beyond the core team</span><h2 class="title">The right expertise for the right project.</h2></div>
+      <div><p class="lead">Lumma may work with educators, reviewers, writers, illustrators, translators, publishers, developers, schools, and other specialists when their expertise contributes directly to a project.</p><a class="button button-primary" href="/collaborate/">Explore collaboration</a></div>
+    </div>
+  </section>
 </BaseLayout>
