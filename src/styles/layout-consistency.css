@@ -1,0 +1,53 @@
+/* Shared page rhythm
+   Keeps the distance below the fixed/sticky header consistent across every route. */
+:root {
+  --header-height: 4.75rem;
+  --page-top-space: clamp(2.5rem, 4vw, 4rem);
+  --section-space: clamp(4rem, 7vw, 6rem);
+  --content-gutter: clamp(1rem, 3vw, 2rem);
+}
+
+/* Every page begins with the same visual relationship to the site header.
+   Individual hero classes may control colour and internal layout, but not the
+   excessive empty space above the first content block. */
+main > section:first-child {
+  padding-top: var(--page-top-space);
+}
+
+/* Keep the first section substantial without recreating the previous large gap. */
+main > section:first-child.hero,
+main > section:first-child.page-hero,
+main > section:first-child.aya-hero,
+main > section:first-child.platform-hero {
+  padding-bottom: clamp(3.5rem, 6vw, 5rem);
+}
+
+/* Shared horizontal rhythm for all pages and components using the container. */
+.container {
+  width: min(var(--max-width), calc(100% - (var(--content-gutter) * 2)));
+}
+
+/* Normal content sections use one responsive vertical rhythm throughout the site. */
+.section {
+  padding-block: var(--section-space);
+}
+
+/* Avoid accidental extra space at the top of the first content group. */
+main > section:first-child .eyebrow:first-child {
+  margin-top: 0;
+}
+
+/* Preserve the same rhythm on smaller screens without making page openings cramped. */
+@media (max-width: 720px) {
+  :root {
+    --page-top-space: 2rem;
+    --section-space: 3.5rem;
+  }
+
+  main > section:first-child.hero,
+  main > section:first-child.page-hero,
+  main > section:first-child.aya-hero,
+  main > section:first-child.platform-hero {
+    padding-bottom: 3.25rem;
+  }
+}
