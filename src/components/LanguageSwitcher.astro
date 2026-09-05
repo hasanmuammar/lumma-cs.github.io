@@ -1,0 +1,48 @@
+<div class="language-switcher" role="group" aria-label="Language selection">
+  <button type="button" class="language-button" data-lang="en" aria-pressed="true">EN</button>
+  <span aria-hidden="true">/</span>
+  <button type="button" class="language-button" data-lang="id" aria-pressed="false">ID</button>
+</div>
+<script>
+  const translations = {
+    en: {
+      Home: 'Home', About: 'About', Aya: 'Aya', 'Aya universe': 'Aya universe',
+      'Aya The Little Muslim': 'Aya The Little Muslim', 'Aya Fun Lingua': 'Aya Fun Lingua',
+      'Aya Books': 'Aya Books', Products: 'Products', 'All products': 'All products',
+      Team: 'Team', Collaborate: 'Collaborate', Contact: 'Contact',
+      'About Lumma': 'About Lumma', 'Our Team': 'Our Team', Resources: 'Resources',
+      'Creative learning experiences for Muslim families.': 'Creative learning experiences for Muslim families.'
+    },
+    id: {
+      Home: 'Beranda', About: 'Tentang', Aya: 'Aya', 'Aya universe': 'Dunia Aya',
+      'Aya The Little Muslim': 'Aya The Little Muslim', 'Aya Fun Lingua': 'Aya Fun Lingua',
+      'Aya Books': 'Aya Books', Products: 'Produk', 'All products': 'Semua produk',
+      Team: 'Tim', Collaborate: 'Kolaborasi', Contact: 'Kontak',
+      'About Lumma': 'Tentang Lumma', 'Our Team': 'Tim Kami', Resources: 'Sumber Belajar',
+      'Creative learning experiences for Muslim families.': 'Pengalaman belajar kreatif untuk keluarga Muslim.'
+    }
+  };
+
+  const storageKey = 'lumma-language';
+  const root = document.documentElement;
+  const buttons = [...document.querySelectorAll('.language-button')];
+
+  function applyLanguage(lang) {
+    const selected = lang === 'id' ? 'id' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      const key = element.getAttribute('data-i18n');
+      if (key && translations[selected][key]) element.textContent = translations[selected][key];
+    });
+    buttons.forEach((button) => {
+      const active = button.dataset.lang === selected;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    root.lang = selected === 'id' ? 'id' : 'en';
+    localStorage.setItem(storageKey, selected);
+  }
+
+  const saved = localStorage.getItem(storageKey) || 'en';
+  applyLanguage(saved);
+  buttons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+</script>
