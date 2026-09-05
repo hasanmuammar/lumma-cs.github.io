@@ -4,6 +4,7 @@ import '../styles/navigation-products.css';
 import '../styles/resources.css';
 import '../styles/studio-pages.css';
 import '../styles/language.css';
+import '../styles/theme.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -23,7 +24,9 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f7f7f4" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffaf6" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#18151c" />
+    <meta name="color-scheme" content="light dark" />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
