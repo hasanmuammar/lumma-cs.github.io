@@ -1,5 +1,5 @@
-.language-switcher { display: inline-flex; align-items: center; gap: .15rem; padding: .28rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.72); }
-.language-button { border: 0; background: transparent; color: var(--muted); padding: .28rem .42rem; border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .03em; cursor: pointer; }
-.language-button.active { background: var(--ink); color: white; }
+.language-switcher { display: inline-flex; align-items: center; gap: .45rem; color: var(--muted); }
+.language-button { border: 0; background: transparent; color: inherit; padding: .15rem 0; font-size: .72rem; font-weight: 800; letter-spacing: .05em; cursor: pointer; }
+.language-button:hover, .language-button.active { color: var(--brand); }
 .language-switcher > span { color: var(--line); font-size: .7rem; }
-@media (max-width: 900px) { .language-switcher { margin-top: .35rem; width: fit-content; } }
+@media (max-width: 900px) { .language-switcher { margin-top: .5rem; } }
