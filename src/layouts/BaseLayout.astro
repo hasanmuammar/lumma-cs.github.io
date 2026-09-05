@@ -22,19 +22,22 @@ const {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffaf7" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#17151d" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffaf6" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111316" />
     <title>{title}</title>
     <script is:inline>
-      const media = window.matchMedia('(prefers-color-scheme: dark)');
-      const applySystemTheme = () => {
-        document.documentElement.dataset.theme = media.matches ? 'dark' : 'light';
-        document.documentElement.style.colorScheme = media.matches ? 'dark' : 'light';
-      };
-      applySystemTheme();
-      media.addEventListener?.('change', applySystemTheme);
+      (() => {
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+        const applySystemTheme = () => {
+          const theme = media.matches ? 'dark' : 'light';
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.style.colorScheme = theme;
+        };
+        applySystemTheme();
+        media.addEventListener?.('change', applySystemTheme);
+      })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
