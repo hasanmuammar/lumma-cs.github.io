@@ -40,18 +40,55 @@ const isHome = currentPath === normalized(base);
   </div>
 </header>
 <script>
+  const header = document.querySelector<HTMLElement>('.site-header');
   const button = document.querySelector<HTMLButtonElement>('.menu-button');
   const navigation = document.querySelector<HTMLElement>('#primary-navigation');
+  const navGroups = Array.from(document.querySelectorAll<HTMLDetailsElement>('.nav-group'));
+
+  const closeSubmenus = (except?: HTMLDetailsElement) => {
+    navGroups.forEach((group) => {
+      if (group !== except) group.removeAttribute('open');
+    });
+  };
 
   button?.addEventListener('click', () => {
     const isOpen = navigation?.classList.toggle('is-open');
     button.setAttribute('aria-expanded', String(Boolean(isOpen)));
+    if (!isOpen) closeSubmenus();
+  });
+
+  navGroups.forEach((group) => {
+    group.addEventListener('toggle', () => {
+      if (group.open) closeSubmenus(group);
+    });
   });
 
   navigation?.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
     link.addEventListener('click', () => {
       navigation.classList.remove('is-open');
       button?.setAttribute('aria-expanded', 'false');
+      closeSubmenus();
     });
+  });
+
+  header?.addEventListener('mouseleave', () => closeSubmenus());
+
+  document.addEventListener('pointerdown', (event) => {
+    const target = event.target as Node;
+    const clickedGroup = navGroups.find((group) => group.contains(target));
+    if (!clickedGroup) closeSubmenus();
+
+    if (header && !header.contains(target)) {
+      navigation?.classList.remove('is-open');
+      button?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeSubmenus();
+      navigation?.classList.remove('is-open');
+      button?.setAttribute('aria-expanded', 'false');
+    }
   });
 </script>
