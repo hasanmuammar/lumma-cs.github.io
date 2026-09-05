@@ -7,9 +7,7 @@
   --content-gutter: clamp(1rem, 3vw, 2rem);
 }
 
-/* Every page begins with the same visual relationship to the site header.
-   Individual hero classes may control colour and internal layout, but not the
-   excessive empty space above the first content block. */
+/* Every page begins with the same visual relationship to the site header. */
 main > section:first-child {
   padding-top: var(--page-top-space);
 }
@@ -38,43 +36,19 @@ main > section:first-child .eyebrow:first-child {
 }
 
 /*
-  Intro band repair.
-  This is a deliberately dark brand section in both colour schemes, so it must
-  define its own foreground colours rather than inheriting the light-theme ink.
-*/
-.intro-band {
-  background: linear-gradient(135deg, #1d2025, #2c292b 56%, #243038);
-  color: #f8f6f3;
-}
-
-.intro-band .eyebrow {
-  color: #ffc16a;
-}
-
-.intro-band .title,
-.intro-band h1,
-.intro-band h2,
-.intro-band h3 {
-  color: #f8f6f3;
-}
-
-.intro-band .lead,
-.intro-band p {
-  color: rgba(248, 246, 243, .76);
-}
-
-/*
-  The previous .55fr / 1.45fr grid created a visually empty left column on
-  wide screens. Keep the label and copy aligned in one compact editorial grid.
+  Intro-band layout
+  The section should follow the same left alignment as the rest of the site.
+  The previous two-column editorial grid reserved a large empty column solely
+  for the eyebrow label, which pushed the main content too far to the right.
 */
 .intro-grid {
-  grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr);
-  gap: clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
   align-items: start;
 }
 
 .intro-grid > :last-child {
-  max-width: 52rem;
+  max-width: 56rem;
 }
 
 @media (max-width: 760px) {
@@ -88,10 +62,5 @@ main > section:first-child .eyebrow:first-child {
   main > section:first-child.aya-hero,
   main > section:first-child.platform-hero {
     padding-bottom: 3.25rem;
-  }
-
-  .intro-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
   }
 }
