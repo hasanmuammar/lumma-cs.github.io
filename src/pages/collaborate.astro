@@ -2,10 +2,67 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
 
-const areas = ['Islamic educational review', 'Education and curriculum', 'Writing and storytelling', 'Illustration and visual development', 'Publishing', 'Translation and localisation', 'Animation and media', 'Web and product development', 'Schools and organisations'];
+const areas = [
+  ['Islamic educational review', 'Review learning content for clarity, appropriateness, and sound educational framing.'],
+  ['Education and curriculum', 'Help shape learning objectives, age-appropriate progression, and practical educational use.'],
+  ['Writing and storytelling', 'Develop stories, scripts, dialogue, and written learning materials.'],
+  ['Illustration and visual development', 'Create visual systems, illustrations, characters, and supporting educational assets.'],
+  ['Publishing', 'Support the development and production of books and other educational publications.'],
+  ['Translation and localisation', 'Adapt learning experiences for different languages and audiences while preserving intent and clarity.'],
+  ['Animation and media', 'Contribute to video, animation, narration, and other media experiences.'],
+  ['Web and product development', 'Build accessible websites, platforms, tools, and digital learning experiences.'],
+  ['Schools and organisations', 'Explore educational partnerships, pilot opportunities, and useful institutional collaboration.']
+];
 ---
-<BaseLayout title="Collaborate With Lumma" description="Explore opportunities to collaborate with Lumma Creative Studio.">
-  <section class="page-hero"><div class="container"><span class="eyebrow">Collaboration</span><h1 class="display">Let's build meaningful learning experiences together.</h1><p class="lead">We are interested in working with people and organisations whose knowledge or capabilities can strengthen useful educational work for Muslim families.</p></div></section>
-  <section class="section"><div class="container"><h2 class="title">Areas of collaboration</h2><div class="grid grid-3">{areas.map((area) => (<article class="card"><h3>{area}</h3></article>))}</div></div></section>
-  <section class="section section-soft"><div class="container"><div class="card"><h2>Start a conversation.</h2><p class="lead">Tell us what you are working on and how you think a collaboration could be useful.</p><a class="button button-primary" href={`${base}contact/`}>Contact Lumma</a></div></div></section>
+
+<BaseLayout title="Collaborate With Lumma" description="Explore opportunities to collaborate with Lumma Creative Studio on educational and creative work.">
+  <section class="page-hero collaborate-hero">
+    <div class="container collaborate-hero-grid">
+      <div>
+        <span class="eyebrow">Collaboration</span>
+        <h1 class="display">Good educational work is rarely built alone.</h1>
+        <p class="lead">Lumma works with people and organisations whose knowledge, skills, or experience can strengthen useful learning experiences for Muslim families.</p>
+      </div>
+      <div class="collaborate-intro-card">
+        <span class="tag">Build with us</span>
+        <strong>Bring expertise where it makes a practical difference.</strong>
+        <p>We value clear communication, relevant expertise, thoughtful review, and work that serves the learner.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div><span class="eyebrow">Areas of collaboration</span><h2 class="title">Different skills can strengthen different parts of the work.</h2></div>
+        <p>The list is intentionally broad. A project may require only one specialist or a combination of several disciplines.</p>
+      </div>
+      <div class="collaboration-grid">
+        {areas.map(([title, text], index) => (
+          <article class="collaboration-area">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <div><h3>{title}</h3><p>{text}</p></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container collaborate-process-grid">
+      <div><span class="eyebrow">A practical conversation</span><h2 class="title">Start with the work, not the pitch.</h2></div>
+      <div class="collaborate-process">
+        <div><strong>01</strong><p>Tell us what you do and what kind of contribution you have in mind.</p></div>
+        <div><strong>02</strong><p>We consider where your expertise could fit within current or future educational work.</p></div>
+        <div><strong>03</strong><p>Where there is a good fit, we define a clear scope and a practical way to work together.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container collaboration-cta">
+      <div><span class="eyebrow">Get in touch</span><h2 class="title">Have a relevant idea or capability?</h2><p class="lead">Send a concise introduction and describe the work you are interested in contributing to.</p></div>
+      <a class="button button-primary" href={`${base}contact/`}>Contact Lumma</a>
+    </div>
+  </section>
 </BaseLayout>
